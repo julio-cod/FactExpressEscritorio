@@ -319,5 +319,35 @@ namespace FactExpressDesktop.Presentacion
                 cargarUsuariosAll();
             }
         }
+
+        private void cbbBuscarPorEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbbBuscarPorEstado.Text == "Todos")
+            {
+                cargarUsuariosAll();
+            }
+            else if (cbbBuscarPorEstado.Text == "Activos")
+            {
+                dUsuario.listarUsuariosActivos(dgvUsuario);
+            }
+            else if (cbbBuscarPorEstado.Text == "Inactivos")
+            {
+                dUsuario.listarUsuariosInactivos(dgvUsuario);
+            }
+            else if (cbbBuscarPorEstado.Text == "Pendientes")
+            {
+                dUsuario.listarUsuariosPendientes(dgvUsuario);
+            }
+            else if (cbbBuscarPorEstado.Text == "Bloqueados")
+            {
+                dUsuario.listarUsuariosBloqueados(dgvUsuario);
+            }
+            else if (cbbBuscarPorEstado.Text == "")
+            {
+                cbbBuscarPorEstado.Text = "Todos";
+                cargarUsuariosAll();
+
+            }
+        }
     }
 }

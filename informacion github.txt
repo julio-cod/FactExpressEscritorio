@@ -1,0 +1,10 @@
+echo "# FactExpressEscritorio" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M master
+git remote add origin https://github.com/julio-cod/FactExpressEscritorio.git
+git push -u origin master
+
+ir al proyecto
+cd c/'Desarrollo de Aplicaciones'/'Proyecto FactExpress'/'FactExpress Escritorio'

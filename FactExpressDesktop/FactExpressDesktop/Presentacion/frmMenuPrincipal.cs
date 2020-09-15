@@ -45,5 +45,29 @@ namespace FactExpressDesktop.Presentacion
             frmCategorias fc = new frmCategorias();
             fc.Show();
         }
+
+        private void rEGISTRARPRODUCTOSToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductos fpd = new frmProductos();
+            fpd.Show();
+        }
+
+        private void rEGISTRARCLENTESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmClientes fct = new frmClientes();
+            fct.Show();
+        }
+
+        private void rEGISTRARPROVEEDORESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProveedores fpv = new frmProveedores();
+            fpv.Show();
+        }
+
+        private void gESTIONAREMPRESALOCALToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpresa fe = new frmEmpresa();
+            fe.ShowDialog();
+        }
     }
 }

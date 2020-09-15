@@ -48,10 +48,18 @@
   <ItemGroup>
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\DataCategoria.cs" />
+    <Compile Include="Clases\DataCliente.cs" />
+    <Compile Include="Clases\DataEmpresa.cs" />
+    <Compile Include="Clases\DataProducto.cs" />
+    <Compile Include="Clases\DataProveedor.cs" />
     <Compile Include="Clases\DataProvincia.cs" />
     <Compile Include="Clases\DataSector.cs" />
     <Compile Include="Clases\DataUsuario.cs" />
     <Compile Include="Modelos\CategoriaModel.cs" />
+    <Compile Include="Modelos\ClienteModel.cs" />
+    <Compile Include="Modelos\EmpresaModel.cs" />
+    <Compile Include="Modelos\ProductoModel.cs" />
+    <Compile Include="Modelos\ProveedorModel.cs" />
     <Compile Include="Modelos\ProvinciaModel.cs" />
     <Compile Include="Modelos\SectorModel.cs" />
     <Compile Include="Modelos\UsuarioModel.cs" />
@@ -61,11 +69,35 @@
     <Compile Include="Presentacion\frmCategorias.Designer.cs">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Presentacion\frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmEmpresa.Designer.cs">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Presentacion\frmMenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Presentacion\frmMenuPrincipal.Designer.cs">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmProductos.Designer.cs">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Presentacion\frmProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Presentacion\frmProveedores.Designer.cs">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Presentacion\frmProvincias.cs">
       <SubType>Form</SubType>
@@ -90,8 +122,20 @@
     <EmbeddedResource Include="Presentacion\frmCategorias.resx">
       <DependentUpon>frmCategorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmProductos.resx">
+      <DependentUpon>frmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Presentacion\frmProveedores.resx">
+      <DependentUpon>frmProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Presentacion\frmProvincias.resx">
       <DependentUpon>frmProvincias.cs</DependentUpon>
