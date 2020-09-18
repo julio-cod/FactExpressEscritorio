@@ -15,7 +15,7 @@ namespace FactExpressDesktop.Presentacion
     {
         DataProducto dProducto = new DataProducto();
 
-        public delegate void pasarDatosProducto(string codigoProducto, string descripcion, string categoria, string precio);
+        public delegate void pasarDatosProducto(string codigoProducto, string descripcion, string categoria, string precio, string stock);
         public event pasarDatosProducto pasadoProducto;
 
         public frmConsultaProductoDesdePedido()
@@ -31,7 +31,8 @@ namespace FactExpressDesktop.Presentacion
         public void cargarProductosAll()
         {
 
-            dProducto.listarProductosAll(dgvProductos);
+            dProducto.listarProductosParaPedidos(dgvProductos);
+
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -41,7 +42,7 @@ namespace FactExpressDesktop.Presentacion
                 if (txtBuscar.Text != "")
                 {
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorDescripcion(dgvProductos);
+                    dProducto.BuscarProductoPorDescripcionParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -53,7 +54,7 @@ namespace FactExpressDesktop.Presentacion
                 if (txtBuscar.Text != "")
                 {
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorCodigo(dgvProductos);
+                    dProducto.BuscarProductoPorCodigoParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -66,7 +67,7 @@ namespace FactExpressDesktop.Presentacion
                 if (txtBuscar.Text != "")
                 {
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorCategoria(dgvProductos);
+                    dProducto.BuscarProductoPorCategoriaParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -79,7 +80,7 @@ namespace FactExpressDesktop.Presentacion
                 if (txtBuscar.Text != "")
                 {
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorDescripcion(dgvProductos);
+                    dProducto.BuscarProductoPorDescripcionParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -96,7 +97,7 @@ namespace FactExpressDesktop.Presentacion
                 {
                     btnBuscar.Enabled = true;
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorDescripcion(dgvProductos);
+                    dProducto.BuscarProductoPorDescripcionParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -110,7 +111,7 @@ namespace FactExpressDesktop.Presentacion
                 {
                     btnBuscar.Enabled = true;
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorCodigo(dgvProductos);
+                    dProducto.BuscarProductoPorCodigoParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -124,7 +125,7 @@ namespace FactExpressDesktop.Presentacion
                 {
                     btnBuscar.Enabled = true;
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorCategoria(dgvProductos);
+                    dProducto.BuscarProductoPorCategoriaParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -139,7 +140,7 @@ namespace FactExpressDesktop.Presentacion
                 {
                     btnBuscar.Enabled = true;
                     dProducto.Buscar = txtBuscar.Text;
-                    dProducto.BuscarProductoPorDescripcion(dgvProductos);
+                    dProducto.BuscarProductoPorDescripcionParaPedidos(dgvProductos);
                 }
                 else
                 {
@@ -157,16 +158,17 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string codigoProducto, descripcion, categoria, precio;
+            string codigoProducto, descripcion, categoria, precio, stock;
 
             try
             {
                 codigoProducto = dgvProductos.CurrentRow.Cells[0].Value.ToString();
                 descripcion = dgvProductos.CurrentRow.Cells[1].Value.ToString();
                 categoria = dgvProductos.CurrentRow.Cells[2].Value.ToString();
-                precio = dgvProductos.CurrentRow.Cells[5].Value.ToString();                
+                stock = dgvProductos.CurrentRow.Cells[3].Value.ToString();
+                precio = dgvProductos.CurrentRow.Cells[4].Value.ToString();                
 
-                pasadoProducto(codigoProducto, descripcion, categoria, precio);
+                pasadoProducto(codigoProducto, descripcion, categoria, precio, stock);
 
                 this.Close();
 

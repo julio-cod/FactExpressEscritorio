@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarFormProductos = new System.Windows.Forms.Button();
             this.cbbBuscarPor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscarFormProductos = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.SuspendLayout();
@@ -52,10 +52,24 @@
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox1.Location = new System.Drawing.Point(12, 24);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1177, 549);
+            this.groupBox1.Size = new System.Drawing.Size(1085, 549);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Productos";
+            // 
+            // btnBuscarFormProductos
+            // 
+            this.btnBuscarFormProductos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscarFormProductos.Enabled = false;
+            this.btnBuscarFormProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarFormProductos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscarFormProductos.Location = new System.Drawing.Point(769, 29);
+            this.btnBuscarFormProductos.Name = "btnBuscarFormProductos";
+            this.btnBuscarFormProductos.Size = new System.Drawing.Size(161, 30);
+            this.btnBuscarFormProductos.TabIndex = 28;
+            this.btnBuscarFormProductos.Text = "Agregar Nuevo";
+            this.btnBuscarFormProductos.UseVisualStyleBackColor = false;
+            this.btnBuscarFormProductos.Click += new System.EventHandler(this.btnBuscarFormProductos_Click);
             // 
             // cbbBuscarPor
             // 
@@ -112,7 +126,7 @@
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProductos.Size = new System.Drawing.Size(1145, 453);
+            this.dgvProductos.Size = new System.Drawing.Size(1050, 453);
             this.dgvProductos.TabIndex = 0;
             this.dgvProductos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProductos_CellDoubleClick);
             // 
@@ -126,25 +140,11 @@
             this.label1.TabIndex = 89;
             this.label1.Text = "[Doble click para seleccionar producto]";
             // 
-            // btnBuscarFormProductos
-            // 
-            this.btnBuscarFormProductos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFormProductos.Enabled = false;
-            this.btnBuscarFormProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarFormProductos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBuscarFormProductos.Location = new System.Drawing.Point(769, 29);
-            this.btnBuscarFormProductos.Name = "btnBuscarFormProductos";
-            this.btnBuscarFormProductos.Size = new System.Drawing.Size(161, 30);
-            this.btnBuscarFormProductos.TabIndex = 28;
-            this.btnBuscarFormProductos.Text = "Agregar Nuevo";
-            this.btnBuscarFormProductos.UseVisualStyleBackColor = false;
-            this.btnBuscarFormProductos.Click += new System.EventHandler(this.btnBuscarFormProductos_Click);
-            // 
             // frmConsultaProductoDesdePedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1206, 623);
+            this.ClientSize = new System.Drawing.Size(1122, 623);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmConsultaProductoDesdePedido";

@@ -16,7 +16,22 @@ namespace FactExpressDesktop.Presentacion
     {
         DataPedido dPedido = new DataPedido();
         DataDetallePedido dDetallePedido = new DataDetallePedido();
+        DataProducto dProducto = new DataProducto();
         string idPedido = "";
+        int codigoProducto;
+
+        //Variables para los calculos
+        int stock = 0;
+        int cantidad = 0;
+        decimal precio = 0;
+        decimal costo = 0;
+        decimal descuento = 0;
+        decimal ganancia = 0;
+        decimal total = 0;
+        decimal subTotal = 0;
+        decimal totalDescuento = 0;
+        decimal totalGanancia = 0;
+
         public frmPedidos()
         {
             InitializeComponent();
@@ -65,14 +80,28 @@ namespace FactExpressDesktop.Presentacion
             txtDescripcion.Text = "";
             cbbCategoria.Text = "";
             txtCantidad.Text = "1";
-            txtPrecio.Text = "0";
+            txtPrecio.Text = "0.00";
             txtDescuento.Text = "0";
-            txtGanancia.Text = "0";
-            txtTotalDescuento.Text = "0";
-            txtTotalGanancia.Text = "0";
+            txtGanancia.Text = "0.00";
+            txtTotal.Text = "0.00";
+            txtTotalDescuento.Text = "0.00";
+            txtTotalGanancia.Text = "0.00";
             txtComentario.Text = "";
             dtpFechaEntrega.Text = DateTime.Now.ToString();
             dgvDetallePedidos.DataSource = null;
+
+            ListadoDetallePedido.Clear();
+
+            stock = 0;
+            cantidad = 0;
+            precio = 0;
+            costo = 0;
+            descuento = 0;
+            ganancia = 0;
+            total = 0;
+            subTotal = 0;
+            totalDescuento = 0;
+            totalGanancia = 0;
 
         }
 
@@ -82,9 +111,9 @@ namespace FactExpressDesktop.Presentacion
             txtDescripcion.Text = "";
             cbbCategoria.Text = "";
             txtCantidad.Text = "1";
-            txtPrecio.Text = "0";
-            txtDescuento.Text = "0";
-            txtGanancia.Text = "0";
+            txtPrecio.Text = "0.00";
+            txtDescuento.Text = "0.00";
+            txtGanancia.Text = "0.00";
 
         }
 
@@ -93,6 +122,7 @@ namespace FactExpressDesktop.Presentacion
             if (txtCodigoCliente.Text == "")
             {
                 MessageBox.Show("Seleccione un Cliente");
+                txtCodigoCliente.Focus();
                 return;
             }
             if (txtNombreCliente.Text == "")
@@ -163,12 +193,17 @@ namespace FactExpressDesktop.Presentacion
             txtCodigoProducto.Focus();
         }
 
-        public void ejecutarDatosProducto(string codigoProducto, string descripcion, string categoria,string precio)
+        public void ejecutarDatosProducto(string pCodigoProducto, string pDescripcion, string pCategoria,string pPrecio, string pStock)
         {
-            txtCodigoProducto.Text = codigoProducto;
-            txtDescripcion.Text = descripcion;
-            cbbCategoria.Text = categoria;
-            txtPrecio.Text = precio;
+            txtCodigoProducto.Text = pCodigoProducto;
+            txtDescripcion.Text = pDescripcion;
+            cbbCategoria.Text = pCategoria;
+            txtPrecio.Text = pPrecio;
+
+            //pasar datos a las variables para el calculo
+            stock = int.Parse(pStock);
+            costo = Convert.ToDecimal(dProducto.BuscarCostoProducto(int.Parse(txtCodigoProducto.Text)));
+
         }
 
         List<DetallePedidoModel> ListadoDetallePedido = new List<DetallePedidoModel>();
@@ -176,7 +211,7 @@ namespace FactExpressDesktop.Presentacion
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             ValidarVacios();
-
+            CalculoAgregarProducto();
 
 
             ListadoDetallePedido.Add(new DetallePedidoModel() {
@@ -291,15 +326,13 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvDetallePedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //codigo = (int)dgvClienttes.Rows[e.RowIndex].Cells[0].Value;
+            codigoProducto = (int)dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value;
             txtCodigoProducto.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value.ToString();
             txtDescripcion.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[3].Value.ToString();
             cbbCategoria.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[4].Value.ToString();
             txtCantidad.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[5].Value.ToString();
             txtPrecio.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[6].Value.ToString();
             txtDescuento.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[7].Value.ToString();
-
-            
 
             habilitar_textbox();
             btnEliminarItem.Enabled = true;
@@ -308,12 +341,11 @@ namespace FactExpressDesktop.Presentacion
 
         private void btnEliminarItem_Click(object sender, EventArgs e)
         {
+            CalculoEliminarProducto();
             ListadoDetallePedido.RemoveAt(dgvDetallePedidos.CurrentRow.Index);
 
-            
-
-
             dgvDetallePedidos.DataSource = null;
+            LimpiarProducto();
 
             dgvDetallePedidos.DataSource = new List<DetallePedidoModel>(ListadoDetallePedido);
 
@@ -328,8 +360,6 @@ namespace FactExpressDesktop.Presentacion
             dgvDetallePedidos.Columns[6].Width = 150;
             dgvDetallePedidos.Columns[7].Width = 150;
             dgvDetallePedidos.Columns[9].Width = 200;
-
-            
 
             btnEliminarItem.Enabled = false;
             btnCancelarSeleccion.Enabled = false;
@@ -351,5 +381,51 @@ namespace FactExpressDesktop.Presentacion
         {
 
         }
+
+        public void CalculoAgregarProducto()
+        {
+            precio = decimal.Parse(txtPrecio.Text);
+            cantidad = int.Parse(txtCantidad.Text);
+            descuento = decimal.Parse(txtDescuento.Text);
+            stock = stock - cantidad;
+
+            subTotal = (cantidad * precio) - descuento;
+            total = total + subTotal;
+
+            txtTotal.Text = total.ToString();
+
+            ganancia = (cantidad * precio) - (cantidad * costo);
+            txtGanancia.Text = ganancia.ToString();
+
+            totalGanancia = totalGanancia + ganancia;
+            txtTotalGanancia.Text = totalGanancia.ToString();
+
+            totalDescuento = totalDescuento + descuento;
+            txtTotalDescuento.Text = totalDescuento.ToString(); 
+
+        }
+
+        public void CalculoEliminarProducto()
+        {
+            costo = Convert.ToDecimal(dProducto.BuscarCostoProducto(codigoProducto));
+            precio = decimal.Parse(txtPrecio.Text);
+            cantidad = int.Parse(txtCantidad.Text);
+            descuento = decimal.Parse(txtDescuento.Text);
+            stock = stock + cantidad;
+
+            subTotal = (cantidad * precio) - descuento;
+            total = total - subTotal;
+
+            txtTotal.Text = total.ToString();
+
+            ganancia = (cantidad * precio) - (cantidad * costo);
+
+            totalGanancia = totalGanancia - ganancia;
+            txtTotalGanancia.Text = totalGanancia.ToString();
+
+            totalDescuento = totalDescuento - descuento;
+            txtTotalDescuento.Text = totalDescuento.ToString();
+        }
+
     }
 }

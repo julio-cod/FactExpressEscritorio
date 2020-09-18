@@ -206,5 +206,181 @@ namespace FactExpressDesktop.Clases
             return dt;
         }
 
+        public void listarProductosParaPedidos(DataGridView data)
+        {
+            conectar.conn.Open();
+            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos", conectar.conn);
+            comando.Connection = conectar.conn;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            data.DataSource = dt;
+            data.Columns[0].Width = 80;
+            data.Columns[1].Width = 350;
+            data.Columns[2].Width = 250;
+            data.Columns[3].Width = 100;
+            data.Columns[4].Width = 150;
+
+
+            conectar.conn.Close();
+        }
+
+        public void BuscarProductoPorDescripcionParaPedidos(DataGridView data)
+        {
+            conectar.conn.Open();
+            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where descripcion like ('%" + buscar + "%')", conectar.conn);
+            comando.Connection = conectar.conn;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            data.DataSource = dt;
+            conectar.conn.Close();
+        }
+
+        public void BuscarProductoPorCodigoParaPedidos(DataGridView data)
+        {
+            try
+            {
+                conectar.conn.Open();
+                SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where codigo = '" + buscar + "'", conectar.conn);
+                comando.Connection = conectar.conn;
+                comando.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(comando);
+                da.Fill(dt);
+                data.DataSource = dt;
+                conectar.conn.Close();
+            }
+            catch (Exception)
+            {
+
+                conectar.conn.Close();
+            }
+
+        }
+
+        public void BuscarProductoPorCategoriaParaPedidos(DataGridView data)
+        {
+            conectar.conn.Open();
+            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where categoria like ('%" + buscar + "%')", conectar.conn);
+            comando.Connection = conectar.conn;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            data.DataSource = dt;
+            conectar.conn.Close();
+        }
+
+        public string BuscarCostoProducto(int codigo)
+        {
+            SqlCommand cmd = null;
+            bool prueba;
+            string bCosto = "";
+
+            cmd = new SqlCommand("Select costo from Productos where codigo= @codigo", conectar.conn);
+
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+
+            conectar.abrir();
+            //int resultado = cmd.ExecuteNonQuery();
+            //cmd = null;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //conectar.cerrar();
+            if (reader.HasRows)
+            {
+                prueba = true;
+                try
+                {
+                    //RECUPERAR EL COSTO AUTOGENERADO
+
+                    if (reader.Read())
+                    {
+                        bCosto = reader[0].ToString();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    //objVenta.Estado = 1;
+
+                }
+                finally
+                {
+                    cmd = null;
+                    conectar.cerrar();
+                }
+
+            }
+            else
+            {
+                prueba = false;
+            }
+
+            return bCosto;
+
+
+        }
+
+        public string BuscarStockProducto(int codigo)
+        {
+            SqlCommand cmd = null;
+            bool prueba;
+            string bStock = "";
+
+            cmd = new SqlCommand("Select stock from Productos where codigo= @codigo", conectar.conn);
+
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+
+            conectar.abrir();
+            //int resultado = cmd.ExecuteNonQuery();
+            //cmd = null;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //conectar.cerrar();
+            if (reader.HasRows)
+            {
+                prueba = true;
+                try
+                {
+                    //RECUPERAR EL STOCK AUTOGENERADO
+
+                    if (reader.Read())
+                    {
+                        bStock = reader[0].ToString();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    //objVenta.Estado = 1;
+
+                }
+                finally
+                {
+                    cmd = null;
+                    conectar.cerrar();
+                }
+
+            }
+            else
+            {
+                prueba = false;
+            }
+
+            return bStock;
+
+
+        }
+
     }
 }
