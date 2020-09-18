@@ -30,11 +30,12 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.rEGISTROSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTRARPROVINCIASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTRARSECTORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTRARCATEGORIASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRARPRODUCTOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rEGISTRARCLENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRARCATEGORIASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRARPROVINCIASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRARSECTORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEGISTRARPROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cONSULTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSASIGNADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSPENDIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -47,7 +48,6 @@
             this.vENTASToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.cONFIGURACIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gESTIONARUSUARIOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEGISTRARPROVEEDORESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gESTIONAREMPRESALOCALToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -80,40 +80,47 @@
             this.rEGISTROSToolStripMenuItem.Size = new System.Drawing.Size(118, 29);
             this.rEGISTROSToolStripMenuItem.Text = "REGISTROS";
             // 
-            // rEGISTRARPROVINCIASToolStripMenuItem
-            // 
-            this.rEGISTRARPROVINCIASToolStripMenuItem.Name = "rEGISTRARPROVINCIASToolStripMenuItem";
-            this.rEGISTRARPROVINCIASToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.rEGISTRARPROVINCIASToolStripMenuItem.Text = "REGISTRAR PROVINCIAS";
-            this.rEGISTRARPROVINCIASToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARPROVINCIASToolStripMenuItem_Click);
-            // 
-            // rEGISTRARSECTORESToolStripMenuItem
-            // 
-            this.rEGISTRARSECTORESToolStripMenuItem.Name = "rEGISTRARSECTORESToolStripMenuItem";
-            this.rEGISTRARSECTORESToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.rEGISTRARSECTORESToolStripMenuItem.Text = "REGISTRAR SECTORES";
-            this.rEGISTRARSECTORESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARSECTORESToolStripMenuItem_Click);
-            // 
-            // rEGISTRARCATEGORIASToolStripMenuItem
-            // 
-            this.rEGISTRARCATEGORIASToolStripMenuItem.Name = "rEGISTRARCATEGORIASToolStripMenuItem";
-            this.rEGISTRARCATEGORIASToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
-            this.rEGISTRARCATEGORIASToolStripMenuItem.Text = "REGISTRAR CATEGORIAS";
-            this.rEGISTRARCATEGORIASToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARCATEGORIASToolStripMenuItem_Click);
-            // 
             // rEGISTRARPRODUCTOSToolStripMenuItem
             // 
             this.rEGISTRARPRODUCTOSToolStripMenuItem.Name = "rEGISTRARPRODUCTOSToolStripMenuItem";
-            this.rEGISTRARPRODUCTOSToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
+            this.rEGISTRARPRODUCTOSToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
             this.rEGISTRARPRODUCTOSToolStripMenuItem.Text = "REGISTRAR PRODUCTOS";
             this.rEGISTRARPRODUCTOSToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARPRODUCTOSToolStripMenuItem_Click);
             // 
             // rEGISTRARCLENTESToolStripMenuItem
             // 
             this.rEGISTRARCLENTESToolStripMenuItem.Name = "rEGISTRARCLENTESToolStripMenuItem";
-            this.rEGISTRARCLENTESToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
+            this.rEGISTRARCLENTESToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
             this.rEGISTRARCLENTESToolStripMenuItem.Text = "REGISTRAR CLENTES";
             this.rEGISTRARCLENTESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARCLENTESToolStripMenuItem_Click);
+            // 
+            // rEGISTRARCATEGORIASToolStripMenuItem
+            // 
+            this.rEGISTRARCATEGORIASToolStripMenuItem.Name = "rEGISTRARCATEGORIASToolStripMenuItem";
+            this.rEGISTRARCATEGORIASToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
+            this.rEGISTRARCATEGORIASToolStripMenuItem.Text = "REGISTRAR CATEGORIAS";
+            this.rEGISTRARCATEGORIASToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARCATEGORIASToolStripMenuItem_Click);
+            // 
+            // rEGISTRARPROVINCIASToolStripMenuItem
+            // 
+            this.rEGISTRARPROVINCIASToolStripMenuItem.Name = "rEGISTRARPROVINCIASToolStripMenuItem";
+            this.rEGISTRARPROVINCIASToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
+            this.rEGISTRARPROVINCIASToolStripMenuItem.Text = "REGISTRAR PROVINCIAS";
+            this.rEGISTRARPROVINCIASToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARPROVINCIASToolStripMenuItem_Click);
+            // 
+            // rEGISTRARSECTORESToolStripMenuItem
+            // 
+            this.rEGISTRARSECTORESToolStripMenuItem.Name = "rEGISTRARSECTORESToolStripMenuItem";
+            this.rEGISTRARSECTORESToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
+            this.rEGISTRARSECTORESToolStripMenuItem.Text = "REGISTRAR SECTORES";
+            this.rEGISTRARSECTORESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARSECTORESToolStripMenuItem_Click);
+            // 
+            // rEGISTRARPROVEEDORESToolStripMenuItem
+            // 
+            this.rEGISTRARPROVEEDORESToolStripMenuItem.Name = "rEGISTRARPROVEEDORESToolStripMenuItem";
+            this.rEGISTRARPROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
+            this.rEGISTRARPROVEEDORESToolStripMenuItem.Text = "REGISTRAR PROVEEDORES";
+            this.rEGISTRARPROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARPROVEEDORESToolStripMenuItem_Click);
             // 
             // cONSULTASToolStripMenuItem
             // 
@@ -158,6 +165,7 @@
             this.cREARPEDIDOToolStripMenuItem.Name = "cREARPEDIDOToolStripMenuItem";
             this.cREARPEDIDOToolStripMenuItem.Size = new System.Drawing.Size(264, 30);
             this.cREARPEDIDOToolStripMenuItem.Text = "CREAR PEDIDOS";
+            this.cREARPEDIDOToolStripMenuItem.Click += new System.EventHandler(this.cREARPEDIDOToolStripMenuItem_Click);
             // 
             // aSIGNARPEDIDOToolStripMenuItem
             // 
@@ -200,13 +208,6 @@
             this.gESTIONARUSUARIOSToolStripMenuItem.Size = new System.Drawing.Size(276, 30);
             this.gESTIONARUSUARIOSToolStripMenuItem.Text = "GESTIONAR USUARIOS";
             this.gESTIONARUSUARIOSToolStripMenuItem.Click += new System.EventHandler(this.gESTIONARUSUARIOSToolStripMenuItem_Click);
-            // 
-            // rEGISTRARPROVEEDORESToolStripMenuItem
-            // 
-            this.rEGISTRARPROVEEDORESToolStripMenuItem.Name = "rEGISTRARPROVEEDORESToolStripMenuItem";
-            this.rEGISTRARPROVEEDORESToolStripMenuItem.Size = new System.Drawing.Size(308, 30);
-            this.rEGISTRARPROVEEDORESToolStripMenuItem.Text = "REGISTRAR PROVEEDORES";
-            this.rEGISTRARPROVEEDORESToolStripMenuItem.Click += new System.EventHandler(this.rEGISTRARPROVEEDORESToolStripMenuItem_Click);
             // 
             // gESTIONAREMPRESALOCALToolStripMenuItem
             // 

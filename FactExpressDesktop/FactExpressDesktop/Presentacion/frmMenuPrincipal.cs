@@ -69,5 +69,11 @@ namespace FactExpressDesktop.Presentacion
             frmEmpresa fe = new frmEmpresa();
             fe.ShowDialog();
         }
+
+        private void cREARPEDIDOToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPedidos fcp = new frmPedidos();
+            fcp.ShowDialog();
+        }
     }
 }

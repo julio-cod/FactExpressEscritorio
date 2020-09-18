@@ -16,3 +16,6 @@ C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactEx
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmClientes.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmProveedores.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmEmpresa.resources
+C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmPedidos.resources
+C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaClienteDesdePedidos.resources
+C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaProductoDesdePedido.resources
