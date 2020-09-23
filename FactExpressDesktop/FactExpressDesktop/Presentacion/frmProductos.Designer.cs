@@ -37,6 +37,7 @@
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscformCategorias = new System.Windows.Forms.Button();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtStock = new System.Windows.Forms.TextBox();
@@ -55,7 +56,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxcargando = new System.Windows.Forms.GroupBox();
             this.p1 = new System.Windows.Forms.ProgressBar();
-            this.btnBuscformCategorias = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -140,6 +140,7 @@
             this.dgvProductos.AllowUserToAddRows = false;
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(13, 79);
+            this.dgvProductos.MultiSelect = false;
             this.dgvProductos.Name = "dgvProductos";
             this.dgvProductos.ReadOnly = true;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -189,6 +190,17 @@
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Del Producto";
+            // 
+            // btnBuscformCategorias
+            // 
+            this.btnBuscformCategorias.Location = new System.Drawing.Point(985, 94);
+            this.btnBuscformCategorias.Name = "btnBuscformCategorias";
+            this.btnBuscformCategorias.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBuscformCategorias.Size = new System.Drawing.Size(43, 23);
+            this.btnBuscformCategorias.TabIndex = 96;
+            this.btnBuscformCategorias.Text = "...";
+            this.btnBuscformCategorias.UseVisualStyleBackColor = true;
+            this.btnBuscformCategorias.Click += new System.EventHandler(this.btnBuscformCategorias_Click);
             // 
             // txtPrecio
             // 
@@ -383,17 +395,6 @@
             this.p1.Size = new System.Drawing.Size(106, 12);
             this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.p1.TabIndex = 9;
-            // 
-            // btnBuscformCategorias
-            // 
-            this.btnBuscformCategorias.Location = new System.Drawing.Point(985, 94);
-            this.btnBuscformCategorias.Name = "btnBuscformCategorias";
-            this.btnBuscformCategorias.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBuscformCategorias.Size = new System.Drawing.Size(43, 23);
-            this.btnBuscformCategorias.TabIndex = 96;
-            this.btnBuscformCategorias.Text = "...";
-            this.btnBuscformCategorias.UseVisualStyleBackColor = true;
-            this.btnBuscformCategorias.Click += new System.EventHandler(this.btnBuscformCategorias_Click);
             // 
             // frmProductos
             // 

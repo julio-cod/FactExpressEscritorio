@@ -35,15 +35,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvUsuario = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBoxcargando = new System.Windows.Forms.GroupBox();
-            this.p1 = new System.Windows.Forms.ProgressBar();
             this.btnnuevo = new System.Windows.Forms.Button();
             this.cbbTipo = new System.Windows.Forms.ComboBox();
             this.btbcancelar = new System.Windows.Forms.Button();
@@ -55,6 +53,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBoxcargando = new System.Windows.Forms.GroupBox();
+            this.p1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuario)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -152,20 +152,6 @@
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnEliminar.Enabled = false;
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnEliminar.Location = new System.Drawing.Point(373, 484);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(111, 39);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
             // txtBuscar
             // 
             this.txtBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -181,12 +167,27 @@
             this.dgvUsuario.AllowUserToAddRows = false;
             this.dgvUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuario.Location = new System.Drawing.Point(13, 134);
+            this.dgvUsuario.MultiSelect = false;
             this.dgvUsuario.Name = "dgvUsuario";
             this.dgvUsuario.ReadOnly = true;
             this.dgvUsuario.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuario.Size = new System.Drawing.Size(610, 389);
             this.dgvUsuario.TabIndex = 0;
             this.dgvUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuario_CellClick);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnEliminar.Location = new System.Drawing.Point(373, 484);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(111, 39);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // groupBox2
             // 
@@ -251,26 +252,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // groupBoxcargando
-            // 
-            this.groupBoxcargando.Controls.Add(this.p1);
-            this.groupBoxcargando.Location = new System.Drawing.Point(988, 12);
-            this.groupBoxcargando.Name = "groupBoxcargando";
-            this.groupBoxcargando.Size = new System.Drawing.Size(123, 32);
-            this.groupBoxcargando.TabIndex = 84;
-            this.groupBoxcargando.TabStop = false;
-            this.groupBoxcargando.Visible = false;
-            // 
-            // p1
-            // 
-            this.p1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.p1.Location = new System.Drawing.Point(6, 10);
-            this.p1.Maximum = 150;
-            this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(106, 12);
-            this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.p1.TabIndex = 9;
             // 
             // btnnuevo
             // 
@@ -394,6 +375,26 @@
             this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
+            // 
+            // groupBoxcargando
+            // 
+            this.groupBoxcargando.Controls.Add(this.p1);
+            this.groupBoxcargando.Location = new System.Drawing.Point(988, 12);
+            this.groupBoxcargando.Name = "groupBoxcargando";
+            this.groupBoxcargando.Size = new System.Drawing.Size(123, 32);
+            this.groupBoxcargando.TabIndex = 84;
+            this.groupBoxcargando.TabStop = false;
+            this.groupBoxcargando.Visible = false;
+            // 
+            // p1
+            // 
+            this.p1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.p1.Location = new System.Drawing.Point(6, 10);
+            this.p1.Maximum = 150;
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(106, 12);
+            this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.p1.TabIndex = 9;
             // 
             // frmUsuarios
             // 

@@ -31,13 +31,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnRefrescarLista = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
             this.dgvEmpresa = new System.Windows.Forms.DataGridView();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbbProvincia = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.btnBuscformProvincias = new System.Windows.Forms.Button();
+            this.btnBuscformSector = new System.Windows.Forms.Button();
+            this.cbbSector = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtCorreo = new System.Windows.Forms.TextBox();
+            this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.groupBoxcargando = new System.Windows.Forms.GroupBox();
-            this.p1 = new System.Windows.Forms.ProgressBar();
             this.btnnuevo = new System.Windows.Forms.Button();
             this.btbcancelar = new System.Windows.Forms.Button();
             this.txtRNC = new System.Windows.Forms.TextBox();
@@ -48,16 +56,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtCorreo = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.btnBuscformSector = new System.Windows.Forms.Button();
-            this.cbbSector = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbbProvincia = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.btnBuscformProvincias = new System.Windows.Forms.Button();
+            this.groupBoxcargando = new System.Windows.Forms.GroupBox();
+            this.p1 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpresa)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -100,6 +100,19 @@
             this.btnRefrescarLista.UseVisualStyleBackColor = false;
             this.btnRefrescarLista.Click += new System.EventHandler(this.btnRefrescarLista_Click);
             // 
+            // dgvEmpresa
+            // 
+            this.dgvEmpresa.AllowUserToAddRows = false;
+            this.dgvEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmpresa.Location = new System.Drawing.Point(13, 84);
+            this.dgvEmpresa.MultiSelect = false;
+            this.dgvEmpresa.Name = "dgvEmpresa";
+            this.dgvEmpresa.ReadOnly = true;
+            this.dgvEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEmpresa.Size = new System.Drawing.Size(610, 433);
+            this.dgvEmpresa.TabIndex = 0;
+            this.dgvEmpresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpresa_CellClick);
+            // 
             // btnEliminar
             // 
             this.btnEliminar.BackColor = System.Drawing.SystemColors.Control;
@@ -113,18 +126,6 @@
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = false;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
-            // 
-            // dgvEmpresa
-            // 
-            this.dgvEmpresa.AllowUserToAddRows = false;
-            this.dgvEmpresa.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmpresa.Location = new System.Drawing.Point(13, 84);
-            this.dgvEmpresa.Name = "dgvEmpresa";
-            this.dgvEmpresa.ReadOnly = true;
-            this.dgvEmpresa.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEmpresa.Size = new System.Drawing.Size(610, 433);
-            this.dgvEmpresa.TabIndex = 0;
-            this.dgvEmpresa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpresa_CellClick);
             // 
             // groupBox2
             // 
@@ -160,6 +161,108 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos de la Empresa";
             // 
+            // cbbProvincia
+            // 
+            this.cbbProvincia.Enabled = false;
+            this.cbbProvincia.FormattingEnabled = true;
+            this.cbbProvincia.Location = new System.Drawing.Point(94, 447);
+            this.cbbProvincia.Name = "cbbProvincia";
+            this.cbbProvincia.Size = new System.Drawing.Size(201, 23);
+            this.cbbProvincia.TabIndex = 104;
+            this.cbbProvincia.Click += new System.EventHandler(this.cbbProvincia_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(13, 450);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(66, 15);
+            this.label10.TabIndex = 103;
+            this.label10.Text = "Provincia";
+            // 
+            // btnBuscformProvincias
+            // 
+            this.btnBuscformProvincias.Location = new System.Drawing.Point(317, 447);
+            this.btnBuscformProvincias.Name = "btnBuscformProvincias";
+            this.btnBuscformProvincias.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBuscformProvincias.Size = new System.Drawing.Size(43, 23);
+            this.btnBuscformProvincias.TabIndex = 102;
+            this.btnBuscformProvincias.Text = "...";
+            this.btnBuscformProvincias.UseVisualStyleBackColor = true;
+            this.btnBuscformProvincias.Click += new System.EventHandler(this.btnBuscformProvincias_Click);
+            // 
+            // btnBuscformSector
+            // 
+            this.btnBuscformSector.Location = new System.Drawing.Point(291, 389);
+            this.btnBuscformSector.Name = "btnBuscformSector";
+            this.btnBuscformSector.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBuscformSector.Size = new System.Drawing.Size(43, 23);
+            this.btnBuscformSector.TabIndex = 101;
+            this.btnBuscformSector.Text = "...";
+            this.btnBuscformSector.UseVisualStyleBackColor = true;
+            this.btnBuscformSector.Click += new System.EventHandler(this.btnBuscformSector_Click);
+            // 
+            // cbbSector
+            // 
+            this.cbbSector.Enabled = false;
+            this.cbbSector.FormattingEnabled = true;
+            this.cbbSector.Location = new System.Drawing.Point(72, 389);
+            this.cbbSector.Name = "cbbSector";
+            this.cbbSector.Size = new System.Drawing.Size(201, 23);
+            this.cbbSector.TabIndex = 100;
+            this.cbbSector.Click += new System.EventHandler(this.cbbSector_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(18, 392);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(48, 15);
+            this.label9.TabIndex = 99;
+            this.label9.Text = "Sector";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Enabled = false;
+            this.txtDireccion.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtDireccion.Location = new System.Drawing.Point(90, 329);
+            this.txtDireccion.MaxLength = 50;
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.Size = new System.Drawing.Size(326, 21);
+            this.txtDireccion.TabIndex = 91;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label8.Location = new System.Drawing.Point(16, 329);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(68, 15);
+            this.label8.TabIndex = 90;
+            this.label8.Text = "Direccion";
+            // 
+            // txtCorreo
+            // 
+            this.txtCorreo.Enabled = false;
+            this.txtCorreo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCorreo.Location = new System.Drawing.Point(72, 273);
+            this.txtCorreo.MaxLength = 50;
+            this.txtCorreo.Name = "txtCorreo";
+            this.txtCorreo.Size = new System.Drawing.Size(344, 21);
+            this.txtCorreo.TabIndex = 89;
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.Enabled = false;
+            this.txtTelefono.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtTelefono.Location = new System.Drawing.Point(90, 219);
+            this.txtTelefono.MaxLength = 50;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(188, 21);
+            this.txtTelefono.TabIndex = 88;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -183,26 +286,6 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Visible = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // groupBoxcargando
-            // 
-            this.groupBoxcargando.Controls.Add(this.p1);
-            this.groupBoxcargando.Location = new System.Drawing.Point(1135, 17);
-            this.groupBoxcargando.Name = "groupBoxcargando";
-            this.groupBoxcargando.Size = new System.Drawing.Size(123, 32);
-            this.groupBoxcargando.TabIndex = 84;
-            this.groupBoxcargando.TabStop = false;
-            this.groupBoxcargando.Visible = false;
-            // 
-            // p1
-            // 
-            this.p1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.p1.Location = new System.Drawing.Point(6, 10);
-            this.p1.Maximum = 150;
-            this.p1.Name = "p1";
-            this.p1.Size = new System.Drawing.Size(106, 12);
-            this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            this.p1.TabIndex = 9;
             // 
             // btnnuevo
             // 
@@ -314,107 +397,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Codigo";
             // 
-            // txtTelefono
+            // groupBoxcargando
             // 
-            this.txtTelefono.Enabled = false;
-            this.txtTelefono.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtTelefono.Location = new System.Drawing.Point(90, 219);
-            this.txtTelefono.MaxLength = 50;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Size = new System.Drawing.Size(188, 21);
-            this.txtTelefono.TabIndex = 88;
+            this.groupBoxcargando.Controls.Add(this.p1);
+            this.groupBoxcargando.Location = new System.Drawing.Point(1135, 17);
+            this.groupBoxcargando.Name = "groupBoxcargando";
+            this.groupBoxcargando.Size = new System.Drawing.Size(123, 32);
+            this.groupBoxcargando.TabIndex = 84;
+            this.groupBoxcargando.TabStop = false;
+            this.groupBoxcargando.Visible = false;
             // 
-            // txtCorreo
+            // p1
             // 
-            this.txtCorreo.Enabled = false;
-            this.txtCorreo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCorreo.Location = new System.Drawing.Point(72, 273);
-            this.txtCorreo.MaxLength = 50;
-            this.txtCorreo.Name = "txtCorreo";
-            this.txtCorreo.Size = new System.Drawing.Size(344, 21);
-            this.txtCorreo.TabIndex = 89;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Enabled = false;
-            this.txtDireccion.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtDireccion.Location = new System.Drawing.Point(90, 329);
-            this.txtDireccion.MaxLength = 50;
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.Size = new System.Drawing.Size(326, 21);
-            this.txtDireccion.TabIndex = 91;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label8.Location = new System.Drawing.Point(16, 329);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(68, 15);
-            this.label8.TabIndex = 90;
-            this.label8.Text = "Direccion";
-            // 
-            // btnBuscformSector
-            // 
-            this.btnBuscformSector.Location = new System.Drawing.Point(291, 389);
-            this.btnBuscformSector.Name = "btnBuscformSector";
-            this.btnBuscformSector.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBuscformSector.Size = new System.Drawing.Size(43, 23);
-            this.btnBuscformSector.TabIndex = 101;
-            this.btnBuscformSector.Text = "...";
-            this.btnBuscformSector.UseVisualStyleBackColor = true;
-            this.btnBuscformSector.Click += new System.EventHandler(this.btnBuscformSector_Click);
-            // 
-            // cbbSector
-            // 
-            this.cbbSector.Enabled = false;
-            this.cbbSector.FormattingEnabled = true;
-            this.cbbSector.Location = new System.Drawing.Point(72, 389);
-            this.cbbSector.Name = "cbbSector";
-            this.cbbSector.Size = new System.Drawing.Size(201, 23);
-            this.cbbSector.TabIndex = 100;
-            this.cbbSector.Click += new System.EventHandler(this.cbbSector_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(18, 392);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 15);
-            this.label9.TabIndex = 99;
-            this.label9.Text = "Sector";
-            // 
-            // cbbProvincia
-            // 
-            this.cbbProvincia.Enabled = false;
-            this.cbbProvincia.FormattingEnabled = true;
-            this.cbbProvincia.Location = new System.Drawing.Point(94, 447);
-            this.cbbProvincia.Name = "cbbProvincia";
-            this.cbbProvincia.Size = new System.Drawing.Size(201, 23);
-            this.cbbProvincia.TabIndex = 104;
-            this.cbbProvincia.Click += new System.EventHandler(this.cbbProvincia_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(13, 450);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(66, 15);
-            this.label10.TabIndex = 103;
-            this.label10.Text = "Provincia";
-            // 
-            // btnBuscformProvincias
-            // 
-            this.btnBuscformProvincias.Location = new System.Drawing.Point(317, 447);
-            this.btnBuscformProvincias.Name = "btnBuscformProvincias";
-            this.btnBuscformProvincias.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBuscformProvincias.Size = new System.Drawing.Size(43, 23);
-            this.btnBuscformProvincias.TabIndex = 102;
-            this.btnBuscformProvincias.Text = "...";
-            this.btnBuscformProvincias.UseVisualStyleBackColor = true;
-            this.btnBuscformProvincias.Click += new System.EventHandler(this.btnBuscformProvincias_Click);
+            this.p1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.p1.Location = new System.Drawing.Point(6, 10);
+            this.p1.Maximum = 150;
+            this.p1.Name = "p1";
+            this.p1.Size = new System.Drawing.Size(106, 12);
+            this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.p1.TabIndex = 9;
             // 
             // frmEmpresa
             // 

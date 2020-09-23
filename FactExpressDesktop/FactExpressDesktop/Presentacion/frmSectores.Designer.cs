@@ -134,6 +134,7 @@
             this.dgvSectores.AllowUserToAddRows = false;
             this.dgvSectores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSectores.Location = new System.Drawing.Point(13, 88);
+            this.dgvSectores.MultiSelect = false;
             this.dgvSectores.Name = "dgvSectores";
             this.dgvSectores.ReadOnly = true;
             this.dgvSectores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

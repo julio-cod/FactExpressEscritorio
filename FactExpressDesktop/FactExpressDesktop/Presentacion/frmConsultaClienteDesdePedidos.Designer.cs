@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarFormClientes = new System.Windows.Forms.Button();
             this.cbbBuscarPor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvClienttes = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscarFormClientes = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienttes)).BeginInit();
             this.SuspendLayout();
@@ -56,6 +56,20 @@
             this.groupBox1.TabIndex = 87;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Clientes";
+            // 
+            // btnBuscarFormClientes
+            // 
+            this.btnBuscarFormClientes.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBuscarFormClientes.Enabled = false;
+            this.btnBuscarFormClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarFormClientes.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnBuscarFormClientes.Location = new System.Drawing.Point(777, 27);
+            this.btnBuscarFormClientes.Name = "btnBuscarFormClientes";
+            this.btnBuscarFormClientes.Size = new System.Drawing.Size(161, 30);
+            this.btnBuscarFormClientes.TabIndex = 28;
+            this.btnBuscarFormClientes.Text = "Agregar Nuevo";
+            this.btnBuscarFormClientes.UseVisualStyleBackColor = false;
+            this.btnBuscarFormClientes.Click += new System.EventHandler(this.btnBuscarFormClientes_Click);
             // 
             // cbbBuscarPor
             // 
@@ -110,6 +124,7 @@
             this.dgvClienttes.AllowUserToAddRows = false;
             this.dgvClienttes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClienttes.Location = new System.Drawing.Point(13, 79);
+            this.dgvClienttes.MultiSelect = false;
             this.dgvClienttes.Name = "dgvClienttes";
             this.dgvClienttes.ReadOnly = true;
             this.dgvClienttes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -126,20 +141,6 @@
             this.label1.Size = new System.Drawing.Size(182, 13);
             this.label1.TabIndex = 88;
             this.label1.Text = "[Doble click para seleccionar Cliente]";
-            // 
-            // btnBuscarFormClientes
-            // 
-            this.btnBuscarFormClientes.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFormClientes.Enabled = false;
-            this.btnBuscarFormClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarFormClientes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBuscarFormClientes.Location = new System.Drawing.Point(777, 27);
-            this.btnBuscarFormClientes.Name = "btnBuscarFormClientes";
-            this.btnBuscarFormClientes.Size = new System.Drawing.Size(161, 30);
-            this.btnBuscarFormClientes.TabIndex = 28;
-            this.btnBuscarFormClientes.Text = "Agregar Nuevo";
-            this.btnBuscarFormClientes.UseVisualStyleBackColor = false;
-            this.btnBuscarFormClientes.Click += new System.EventHandler(this.btnBuscarFormClientes_Click);
             // 
             // frmConsultaClienteDesdePedidos
             // 

@@ -21,6 +21,7 @@ namespace FactExpressDesktop.Presentacion
         int codigoProducto;
 
         //Variables para los calculos
+        string estado = "Pendiente";
         int stock = 0;
         int cantidad = 0;
         decimal precio = 0;
@@ -81,11 +82,11 @@ namespace FactExpressDesktop.Presentacion
             cbbCategoria.Text = "";
             txtCantidad.Text = "1";
             txtPrecio.Text = "0.00";
-            txtDescuento.Text = "0";
-            txtGanancia.Text = "0.00";
+            txtDescuento.Text = "0.00";
+            txtSubTotal.Text = "0.00";
             txtTotal.Text = "0.00";
             txtTotalDescuento.Text = "0.00";
-            txtTotalGanancia.Text = "0.00";
+            totalGanancia = 0;
             txtComentario.Text = "";
             dtpFechaEntrega.Text = DateTime.Now.ToString();
             dgvDetallePedidos.DataSource = null;
@@ -113,34 +114,38 @@ namespace FactExpressDesktop.Presentacion
             txtCantidad.Text = "1";
             txtPrecio.Text = "0.00";
             txtDescuento.Text = "0.00";
-            txtGanancia.Text = "0.00";
+            ganancia = 0;
 
         }
 
-        public void ValidarVacios()
+        public bool ValidarVacios()
         {
             if (txtCodigoCliente.Text == "")
             {
-                MessageBox.Show("Seleccione un Cliente");
-                txtCodigoCliente.Focus();
-                return;
+                
+                return false;
             }
-            if (txtNombreCliente.Text == "")
+            else
             {
-                txtNombreCliente.Text = "Vacio";
+                if (txtNombreCliente.Text == "")
+                {
+                    txtNombreCliente.Text = "Vacio";
+                }
+                if (txtLugarEntrega.Text == "")
+                {
+                    txtLugarEntrega.Text = "Vacio";
+                }
+                if (txtComentario.Text == "")
+                {
+                    txtComentario.Text = "Vacio";
+                }
+                if (txtCantidad.Text == "")
+                {
+                    txtCantidad.Text = "1";
+                }
+                return true;
             }
-            if (txtLugarEntrega.Text == "")
-            {
-                txtLugarEntrega.Text = "Vacio";
-            }
-            if (txtComentario.Text == "")
-            {
-                txtComentario.Text = "Vacio";
-            }
-            if (txtCantidad.Text == "")
-            {
-                txtCantidad.Text = "1";
-            }
+            
 
         }
 
@@ -153,7 +158,7 @@ namespace FactExpressDesktop.Presentacion
             
             btnGuardarPedido.Enabled = true;
             btnBuscarCliente.Enabled = true;
-            btnEliminar.Enabled = true;
+            //btnEliminar.Enabled = true;
             btbcancelar.Enabled = true;
             btnBuscarProducto.Enabled = true;
             btnAgregar.Enabled = true;
@@ -199,6 +204,8 @@ namespace FactExpressDesktop.Presentacion
             txtDescripcion.Text = pDescripcion;
             cbbCategoria.Text = pCategoria;
             txtPrecio.Text = pPrecio;
+            txtDescuento.Text = "0.00";
+            ganancia = 0;
 
             //pasar datos a las variables para el calculo
             stock = int.Parse(pStock);
@@ -210,42 +217,46 @@ namespace FactExpressDesktop.Presentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            ValidarVacios();
-            CalculoAgregarProducto();
+            if (txtCodigoProducto.Text == "" || txtDescripcion.Text == "" || cbbCategoria.Text == "" || txtCantidad.Text == "" || txtPrecio.Text == "" || ganancia.ToString() == "" || dtpFechaActual.Text == "")
+            {
+                MessageBox.Show("Error al Seleccionar Producto - Intentelo nuevamente");
+                return;
+            }
+            if (ValidarVacios() == true)
+            {
+                CalculoAgregarProducto();
 
 
-            ListadoDetallePedido.Add(new DetallePedidoModel() {
+                ListadoDetallePedido.Add(new DetallePedidoModel()
+                {
 
-                //CodPedido = int.Parse(idPedido),
-                CodProducto = int.Parse(txtCodigoProducto.Text),
-                Descripcion = txtDescripcion.Text,
-                Categoria = cbbCategoria.Text,
-                Cantidad = int.Parse(txtCantidad.Text),
-                Precio = decimal.Parse(txtPrecio.Text),
-                Descuento = decimal.Parse(txtDescuento.Text),
-                Ganancia = decimal.Parse(txtGanancia.Text),
-                Fecha = Convert.ToDateTime(dtpFechaActual.Text)
+                    //CodPedido = int.Parse(idPedido),
+                    CodProducto = int.Parse(txtCodigoProducto.Text),
+                    Descripcion = txtDescripcion.Text,
+                    Categoria = cbbCategoria.Text,
+                    Cantidad = int.Parse(txtCantidad.Text),
+                    Precio = decimal.Parse(txtPrecio.Text),
+                    Descuento = decimal.Parse(txtDescuento.Text),
+                    Ganancia = ganancia,
+                    Fecha = Convert.ToDateTime(dtpFechaActual.Text)
 
-            });
+                });
 
-            LimpiarProducto();
+                LimpiarProducto();
+
+                dgvDetallePedidos.DataSource = null;
+                dgvDetallePedidos.DataSource = new List<DetallePedidoModel>(ListadoDetallePedido);
+
+                EstructutaDataGridView();
+
+                
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un Cliente");
+                txtCodigoCliente.Focus();
+            }
             
-            dgvDetallePedidos.DataSource = null;
-            dgvDetallePedidos.DataSource = new List<DetallePedidoModel>(ListadoDetallePedido);
-
-            dgvDetallePedidos.Columns[0].Visible = false;
-            dgvDetallePedidos.Columns[1].Visible = false;
-            dgvDetallePedidos.Columns[8].Visible = false;
-
-            dgvDetallePedidos.Columns[2].Width = 100;
-            dgvDetallePedidos.Columns[3].Width = 350;
-            dgvDetallePedidos.Columns[4].Width = 200;
-            dgvDetallePedidos.Columns[5].Width = 100;
-            dgvDetallePedidos.Columns[6].Width = 150;
-            dgvDetallePedidos.Columns[7].Width = 150;
-            dgvDetallePedidos.Columns[9].Width = 200;
-
-            //dgvDetallePedidos.DataSource = new List<DetallePedidoModel>(ListadoDetallePedido);
 
         }
 
@@ -268,10 +279,10 @@ namespace FactExpressDesktop.Presentacion
                 LugarEntrega = txtLugarEntrega.Text,
                 FechaOrden = Convert.ToDateTime(dtpFechaActual.Text),
                 FechaEntrega = Convert.ToDateTime(dtpFechaEntrega.Text),
-                TotalDescuentos = decimal.Parse(txtDescuento.Text),
+                TotalDescuentos = decimal.Parse(txtTotalDescuento.Text),
                 Total = decimal.Parse(txtTotal.Text),
-                TotalGanancia = decimal.Parse(txtTotalGanancia.Text),
-                Estado = cbbEstadoPedido.Text,
+                TotalGanancia = totalGanancia,
+                Estado = estado,
                 Comentario = txtComentario.Text
 
             };
@@ -315,7 +326,7 @@ namespace FactExpressDesktop.Presentacion
                 btnBuscarCliente.Enabled = false;
                 btnBuscarProducto.Enabled = false;
                 btnAgregar.Enabled = false;
-                btnEliminar.Enabled = false;
+                //btnEliminar.Enabled = false;
                 
                 MessageBox.Show("PEDIDO GUARDADO CON EXITO...");
 
@@ -326,17 +337,33 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvDetallePedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            codigoProducto = (int)dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value;
-            txtCodigoProducto.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtDescripcion.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[3].Value.ToString();
-            cbbCategoria.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[4].Value.ToString();
-            txtCantidad.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[5].Value.ToString();
-            txtPrecio.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[6].Value.ToString();
-            txtDescuento.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[7].Value.ToString();
+            try
+            {
+                codigoProducto = (int)dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value;
+                txtCodigoProducto.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtDescripcion.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[3].Value.ToString();
+                cbbCategoria.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtCantidad.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtPrecio.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[6].Value.ToString();
+                txtDescuento.Text = dgvDetallePedidos.Rows[e.RowIndex].Cells[7].Value.ToString();
 
-            habilitar_textbox();
-            btnEliminarItem.Enabled = true;
-            btnCancelarSeleccion.Enabled = true;
+                habilitar_textbox();
+                btnEliminarItem.Enabled = true;
+                btnCancelarSeleccion.Enabled = true;
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Seleccione un Producto correctamente");
+                habilitar_textbox();
+                LimpiarProducto();
+                btnEliminarItem.Enabled = false;
+                btnCancelarSeleccion.Enabled = false;
+
+            }
+            
+
+            
         }
 
         private void btnEliminarItem_Click(object sender, EventArgs e)
@@ -349,17 +376,7 @@ namespace FactExpressDesktop.Presentacion
 
             dgvDetallePedidos.DataSource = new List<DetallePedidoModel>(ListadoDetallePedido);
 
-            dgvDetallePedidos.Columns[0].Visible = false;
-            dgvDetallePedidos.Columns[1].Visible = false;
-            dgvDetallePedidos.Columns[8].Visible = false;
-
-            dgvDetallePedidos.Columns[2].Width = 100;
-            dgvDetallePedidos.Columns[3].Width = 350;
-            dgvDetallePedidos.Columns[4].Width = 200;
-            dgvDetallePedidos.Columns[5].Width = 100;
-            dgvDetallePedidos.Columns[6].Width = 150;
-            dgvDetallePedidos.Columns[7].Width = 150;
-            dgvDetallePedidos.Columns[9].Width = 200;
+            EstructutaDataGridView();
 
             btnEliminarItem.Enabled = false;
             btnCancelarSeleccion.Enabled = false;
@@ -377,10 +394,7 @@ namespace FactExpressDesktop.Presentacion
 
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         public void CalculoAgregarProducto()
         {
@@ -389,19 +403,26 @@ namespace FactExpressDesktop.Presentacion
             descuento = decimal.Parse(txtDescuento.Text);
             stock = stock - cantidad;
 
-            subTotal = (cantidad * precio) - descuento;
-            total = total + subTotal;
-
-            txtTotal.Text = total.ToString();
-
-            ganancia = (cantidad * precio) - (cantidad * costo);
-            txtGanancia.Text = ganancia.ToString();
-
-            totalGanancia = totalGanancia + ganancia;
-            txtTotalGanancia.Text = totalGanancia.ToString();
+            subTotal = subTotal + (cantidad * precio);
+            txtSubTotal.Text = subTotal.ToString();
 
             totalDescuento = totalDescuento + descuento;
-            txtTotalDescuento.Text = totalDescuento.ToString(); 
+            txtTotalDescuento.Text = totalDescuento.ToString();
+
+            total = subTotal - totalDescuento;
+            txtTotal.Text = total.ToString();
+  
+            ganancia = (cantidad * precio) - (cantidad * costo);
+            //txtGanancia.Text = ganancia.ToString();
+
+            totalGanancia = totalGanancia + ganancia;
+            //txtTotalGanancia.Text = totalGanancia.ToString();
+            if (totalDescuento == 0)
+            {
+                txtTotalDescuento.Text = "0.00";
+            }
+
+            
 
         }
 
@@ -413,18 +434,43 @@ namespace FactExpressDesktop.Presentacion
             descuento = decimal.Parse(txtDescuento.Text);
             stock = stock + cantidad;
 
-            subTotal = (cantidad * precio) - descuento;
-            total = total - subTotal;
+            subTotal = subTotal - (cantidad * precio);
+            txtSubTotal.Text = subTotal.ToString();
 
+            totalDescuento = totalDescuento - descuento;
+            txtTotalDescuento.Text = totalDescuento.ToString();
+
+            total = subTotal - totalDescuento;
             txtTotal.Text = total.ToString();
 
             ganancia = (cantidad * precio) - (cantidad * costo);
 
             totalGanancia = totalGanancia - ganancia;
-            txtTotalGanancia.Text = totalGanancia.ToString();
+            //txtTotalGanancia.Text = totalGanancia.ToString();
 
-            totalDescuento = totalDescuento - descuento;
-            txtTotalDescuento.Text = totalDescuento.ToString();
+            if (totalDescuento == 0)
+            {
+                txtTotalDescuento.Text = "0.00";
+            }
+
+
+        }
+
+        public void EstructutaDataGridView()
+        {
+            dgvDetallePedidos.Columns[0].Visible = false;
+            dgvDetallePedidos.Columns[1].Visible = false;
+            dgvDetallePedidos.Columns[8].Visible = false;
+
+            dgvDetallePedidos.Columns[2].Width = 100;
+            dgvDetallePedidos.Columns[3].Width = 350;
+            dgvDetallePedidos.Columns[4].Width = 200;
+            dgvDetallePedidos.Columns[5].Width = 100;
+            dgvDetallePedidos.Columns[6].Width = 150;
+            dgvDetallePedidos.Columns[7].Width = 150;
+            dgvDetallePedidos.Columns[9].Width = 200;
+
+            
         }
 
     }

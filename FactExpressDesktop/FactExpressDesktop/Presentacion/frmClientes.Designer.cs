@@ -36,6 +36,7 @@
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvClienttes = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscformSector = new System.Windows.Forms.Button();
             this.cbbProvincia = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.groupBoxcargando = new System.Windows.Forms.GroupBox();
             this.p1 = new System.Windows.Forms.ProgressBar();
-            this.btnBuscformSector = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienttes)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -144,6 +144,7 @@
             this.dgvClienttes.AllowUserToAddRows = false;
             this.dgvClienttes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClienttes.Location = new System.Drawing.Point(13, 79);
+            this.dgvClienttes.MultiSelect = false;
             this.dgvClienttes.Name = "dgvClienttes";
             this.dgvClienttes.ReadOnly = true;
             this.dgvClienttes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -182,6 +183,17 @@
             this.groupBox2.TabIndex = 85;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Del Cliente";
+            // 
+            // btnBuscformSector
+            // 
+            this.btnBuscformSector.Location = new System.Drawing.Point(294, 237);
+            this.btnBuscformSector.Name = "btnBuscformSector";
+            this.btnBuscformSector.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnBuscformSector.Size = new System.Drawing.Size(43, 23);
+            this.btnBuscformSector.TabIndex = 98;
+            this.btnBuscformSector.Text = "...";
+            this.btnBuscformSector.UseVisualStyleBackColor = true;
+            this.btnBuscformSector.Click += new System.EventHandler(this.btnBuscformSector_Click);
             // 
             // cbbProvincia
             // 
@@ -421,17 +433,6 @@
             this.p1.Size = new System.Drawing.Size(106, 12);
             this.p1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             this.p1.TabIndex = 9;
-            // 
-            // btnBuscformSector
-            // 
-            this.btnBuscformSector.Location = new System.Drawing.Point(294, 237);
-            this.btnBuscformSector.Name = "btnBuscformSector";
-            this.btnBuscformSector.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnBuscformSector.Size = new System.Drawing.Size(43, 23);
-            this.btnBuscformSector.TabIndex = 98;
-            this.btnBuscformSector.Text = "...";
-            this.btnBuscformSector.UseVisualStyleBackColor = true;
-            this.btnBuscformSector.Click += new System.EventHandler(this.btnBuscformSector_Click);
             // 
             // frmClientes
             // 

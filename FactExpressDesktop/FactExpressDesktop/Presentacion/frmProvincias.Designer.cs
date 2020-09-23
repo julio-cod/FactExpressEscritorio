@@ -131,6 +131,7 @@
             this.dgvProvincias.AllowUserToAddRows = false;
             this.dgvProvincias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProvincias.Location = new System.Drawing.Point(13, 88);
+            this.dgvProvincias.MultiSelect = false;
             this.dgvProvincias.Name = "dgvProvincias";
             this.dgvProvincias.ReadOnly = true;
             this.dgvProvincias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

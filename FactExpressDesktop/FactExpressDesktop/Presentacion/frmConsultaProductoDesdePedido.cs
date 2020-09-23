@@ -175,7 +175,8 @@ namespace FactExpressDesktop.Presentacion
             }
             catch (Exception)
             {
-                this.Close();
+                MessageBox.Show("Selecione correctamente el producto.");
+                //this.Close();
 
             }
         }
