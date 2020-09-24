@@ -39,15 +39,17 @@
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtSubTotal = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.txtComentario = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dtpFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.btnGuardarPedido = new System.Windows.Forms.Button();
             this.btbcancelar = new System.Windows.Forms.Button();
             this.txtTotalDescuento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dtpFechaEntrega = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnNuevoPedido = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
@@ -69,8 +71,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnEliminarItem = new System.Windows.Forms.Button();
             this.btnCancelarSeleccion = new System.Windows.Forms.Button();
-            this.txtSubTotal = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetallePedidos)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -211,18 +211,39 @@
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox3.Location = new System.Drawing.Point(12, 316);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1384, 226);
+            this.groupBox3.Size = new System.Drawing.Size(1293, 226);
             this.groupBox3.TabIndex = 93;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Del Pedido";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // txtSubTotal
+            // 
+            this.txtSubTotal.Enabled = false;
+            this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubTotal.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtSubTotal.Location = new System.Drawing.Point(131, 38);
+            this.txtSubTotal.Name = "txtSubTotal";
+            this.txtSubTotal.Size = new System.Drawing.Size(183, 22);
+            this.txtSubTotal.TabIndex = 116;
+            this.txtSubTotal.Text = "0.00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(55, 41);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 15);
+            this.label5.TabIndex = 115;
+            this.label5.Text = "SubTotal";
             // 
             // txtComentario
             // 
             this.txtComentario.Enabled = false;
             this.txtComentario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtComentario.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtComentario.Location = new System.Drawing.Point(967, 153);
+            this.txtComentario.Location = new System.Drawing.Point(903, 14);
             this.txtComentario.Multiline = true;
             this.txtComentario.Name = "txtComentario";
             this.txtComentario.Size = new System.Drawing.Size(372, 54);
@@ -232,7 +253,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(876, 156);
+            this.label11.Location = new System.Drawing.Point(812, 17);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(85, 15);
             this.label11.TabIndex = 112;
@@ -258,16 +279,6 @@
             this.label8.Size = new System.Drawing.Size(39, 15);
             this.label8.TabIndex = 108;
             this.label8.Text = "Total";
-            // 
-            // dtpFechaEntrega
-            // 
-            this.dtpFechaEntrega.Enabled = false;
-            this.dtpFechaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaEntrega.Location = new System.Drawing.Point(307, 13);
-            this.dtpFechaEntrega.Name = "dtpFechaEntrega";
-            this.dtpFechaEntrega.Size = new System.Drawing.Size(133, 21);
-            this.dtpFechaEntrega.TabIndex = 107;
             // 
             // btnGuardarPedido
             // 
@@ -316,6 +327,16 @@
             this.label2.Size = new System.Drawing.Size(111, 15);
             this.label2.TabIndex = 94;
             this.label2.Text = "Total Descuento";
+            // 
+            // dtpFechaEntrega
+            // 
+            this.dtpFechaEntrega.Enabled = false;
+            this.dtpFechaEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpFechaEntrega.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaEntrega.Location = new System.Drawing.Point(307, 13);
+            this.dtpFechaEntrega.Name = "dtpFechaEntrega";
+            this.dtpFechaEntrega.Size = new System.Drawing.Size(133, 21);
+            this.dtpFechaEntrega.TabIndex = 107;
             // 
             // label4
             // 
@@ -382,7 +403,7 @@
             this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.groupBox4.Location = new System.Drawing.Point(12, 145);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1235, 156);
+            this.groupBox4.Size = new System.Drawing.Size(1293, 156);
             this.groupBox4.TabIndex = 107;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos Del Producto";
@@ -565,27 +586,6 @@
             this.btnCancelarSeleccion.Text = "Cancelar Seleccion";
             this.btnCancelarSeleccion.UseVisualStyleBackColor = false;
             this.btnCancelarSeleccion.Click += new System.EventHandler(this.btnCancelarSeleccion_Click);
-            // 
-            // txtSubTotal
-            // 
-            this.txtSubTotal.Enabled = false;
-            this.txtSubTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtSubTotal.Location = new System.Drawing.Point(131, 38);
-            this.txtSubTotal.Name = "txtSubTotal";
-            this.txtSubTotal.Size = new System.Drawing.Size(183, 22);
-            this.txtSubTotal.TabIndex = 116;
-            this.txtSubTotal.Text = "0.00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(55, 41);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 15);
-            this.label5.TabIndex = 115;
-            this.label5.Text = "SubTotal";
             // 
             // frmPedidos
             // 

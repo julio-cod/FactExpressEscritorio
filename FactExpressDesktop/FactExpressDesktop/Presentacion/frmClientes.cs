@@ -227,21 +227,30 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvClienttes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            codigo = (int)dgvClienttes.Rows[e.RowIndex].Cells[0].Value;
-            txtCodigo.Text = dgvClienttes.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNombre.Text = dgvClienttes.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtTelefono.Text = dgvClienttes.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCorreo.Text = dgvClienttes.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtDireccion.Text = dgvClienttes.Rows[e.RowIndex].Cells[4].Value.ToString();
-            cbbSector.Text = dgvClienttes.Rows[e.RowIndex].Cells[5].Value.ToString();
-            cbbProvincia.Text = dgvClienttes.Rows[e.RowIndex].Cells[6].Value.ToString();
+            try
+            {
+                codigo = (int)dgvClienttes.Rows[e.RowIndex].Cells[0].Value;
+                txtCodigo.Text = dgvClienttes.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtNombre.Text = dgvClienttes.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtTelefono.Text = dgvClienttes.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtCorreo.Text = dgvClienttes.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtDireccion.Text = dgvClienttes.Rows[e.RowIndex].Cells[4].Value.ToString();
+                cbbSector.Text = dgvClienttes.Rows[e.RowIndex].Cells[5].Value.ToString();
+                cbbProvincia.Text = dgvClienttes.Rows[e.RowIndex].Cells[6].Value.ToString();
 
-            habilitar_textbox();
-            btnGuardar.Visible = false;
-            btnnuevo.Visible = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btbcancelar.Enabled = true;
+                habilitar_textbox();
+                btnGuardar.Visible = false;
+                btnnuevo.Visible = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btbcancelar.Enabled = true;
+            }
+            catch (Exception)
+            {
+
+             
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

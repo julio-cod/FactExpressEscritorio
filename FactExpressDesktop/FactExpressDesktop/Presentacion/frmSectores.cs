@@ -170,17 +170,26 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvSectores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            codigo = (int)dgvSectores.Rows[e.RowIndex].Cells[0].Value;
-            txtCodigo.Text = dgvSectores.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtSector.Text = dgvSectores.Rows[e.RowIndex].Cells[1].Value.ToString();
-            cbbProvincias.Text = dgvSectores.Rows[e.RowIndex].Cells[2].Value.ToString();
+            try
+            {
+                codigo = (int)dgvSectores.Rows[e.RowIndex].Cells[0].Value;
+                txtCodigo.Text = dgvSectores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtSector.Text = dgvSectores.Rows[e.RowIndex].Cells[1].Value.ToString();
+                cbbProvincias.Text = dgvSectores.Rows[e.RowIndex].Cells[2].Value.ToString();
 
-            habilitar_textbox();
-            btnGuardar.Visible = false;
-            btnnuevo.Visible = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btbcancelar.Enabled = true;
+                habilitar_textbox();
+                btnGuardar.Visible = false;
+                btnnuevo.Visible = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btbcancelar.Enabled = true;
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

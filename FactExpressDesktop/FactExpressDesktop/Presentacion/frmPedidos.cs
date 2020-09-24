@@ -422,7 +422,6 @@ namespace FactExpressDesktop.Presentacion
                 txtTotalDescuento.Text = "0.00";
             }
 
-            
 
         }
 

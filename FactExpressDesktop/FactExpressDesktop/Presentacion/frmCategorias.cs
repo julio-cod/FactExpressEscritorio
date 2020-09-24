@@ -155,16 +155,24 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvCategorias_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            codigo = (int)dgvCategorias.Rows[e.RowIndex].Cells[0].Value;
-            txtCodigo.Text = dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNombreCategoria.Text = dgvCategorias.Rows[e.RowIndex].Cells[1].Value.ToString();
+            try
+            {
+                codigo = (int)dgvCategorias.Rows[e.RowIndex].Cells[0].Value;
+                txtCodigo.Text = dgvCategorias.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtNombreCategoria.Text = dgvCategorias.Rows[e.RowIndex].Cells[1].Value.ToString();
 
-            habilitar_textbox();
-            btnGuardar.Visible = false;
-            btnnuevo.Visible = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btbcancelar.Enabled = true;
+                habilitar_textbox();
+                btnGuardar.Visible = false;
+                btnnuevo.Visible = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btbcancelar.Enabled = true;
+            }
+            catch (Exception)
+            {
+
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

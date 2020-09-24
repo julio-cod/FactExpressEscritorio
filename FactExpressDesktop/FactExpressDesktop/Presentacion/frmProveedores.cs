@@ -192,19 +192,28 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            codigo = (int)dgvProveedores.Rows[e.RowIndex].Cells[0].Value;
-            txtCodigo.Text = dgvProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
-            txtNombre.Text = dgvProveedores.Rows[e.RowIndex].Cells[1].Value.ToString();
-            txtTelefono.Text = dgvProveedores.Rows[e.RowIndex].Cells[2].Value.ToString();
-            txtCelular.Text = dgvProveedores.Rows[e.RowIndex].Cells[3].Value.ToString();
-            txtDireccion.Text = dgvProveedores.Rows[e.RowIndex].Cells[4].Value.ToString();
+            try
+            {
+                codigo = (int)dgvProveedores.Rows[e.RowIndex].Cells[0].Value;
+                txtCodigo.Text = dgvProveedores.Rows[e.RowIndex].Cells[0].Value.ToString();
+                txtNombre.Text = dgvProveedores.Rows[e.RowIndex].Cells[1].Value.ToString();
+                txtTelefono.Text = dgvProveedores.Rows[e.RowIndex].Cells[2].Value.ToString();
+                txtCelular.Text = dgvProveedores.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtDireccion.Text = dgvProveedores.Rows[e.RowIndex].Cells[4].Value.ToString();
 
-            habilitar_textbox();
-            btnGuardar.Visible = false;
-            btnnuevo.Visible = true;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btbcancelar.Enabled = true;
+                habilitar_textbox();
+                btnGuardar.Visible = false;
+                btnnuevo.Visible = true;
+                btnEditar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btbcancelar.Enabled = true;
+            }
+            catch (Exception)
+            {
+
+               
+            }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

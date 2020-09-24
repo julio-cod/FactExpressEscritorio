@@ -21,3 +21,5 @@ C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactEx
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaProductoDesdePedido.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmGestionarPedidos.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmAsignarPedidos.resources
+C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarProductoParaGestion.resources
+C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarClienteParaGestion.resources

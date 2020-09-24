@@ -31,6 +31,13 @@
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.dgvPedidosPendientes = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnVerDetalles = new System.Windows.Forms.Button();
+            this.btnAsignarPedido = new System.Windows.Forms.Button();
+            this.txtLugarEntrega = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtNombreCliente = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.dtpFechaOrden = new System.Windows.Forms.DateTimePicker();
@@ -48,6 +55,11 @@
             this.txtTotalDescuento = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarNuevo = new System.Windows.Forms.Button();
+            this.btnVerTodos = new System.Windows.Forms.Button();
+            this.txtBuscar = new System.Windows.Forms.TextBox();
+            this.cbbBuscarPor = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.dgvOperadores = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtNombreOperador = new System.Windows.Forms.TextBox();
@@ -55,22 +67,11 @@
             this.txtCodigoOperador = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.btnQuitarDeLista = new System.Windows.Forms.Button();
             this.dgvPedidosAsignados = new System.Windows.Forms.DataGridView();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.txtNombreCliente = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtLugarEntrega = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.cbbBuscarPor = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnVerTodos = new System.Windows.Forms.Button();
-            this.btnAgregarNuevo = new System.Windows.Forms.Button();
-            this.btnAsignarPedido = new System.Windows.Forms.Button();
-            this.btnVerDetalles = new System.Windows.Forms.Button();
-            this.btnQuitarDeLista = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnRefrescarLista = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPedidosPendientes)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -84,12 +85,13 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.btnRefrescarLista);
             this.groupBox5.Controls.Add(this.dgvPedidosPendientes);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox5.Location = new System.Drawing.Point(14, 500);
+            this.groupBox5.Location = new System.Drawing.Point(14, 474);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(832, 326);
+            this.groupBox5.Size = new System.Drawing.Size(832, 361);
             this.groupBox5.TabIndex = 133;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Lista de Pedidos Pendientes";
@@ -98,12 +100,12 @@
             // 
             this.dgvPedidosPendientes.AllowUserToAddRows = false;
             this.dgvPedidosPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPedidosPendientes.Location = new System.Drawing.Point(11, 20);
+            this.dgvPedidosPendientes.Location = new System.Drawing.Point(9, 67);
             this.dgvPedidosPendientes.MultiSelect = false;
             this.dgvPedidosPendientes.Name = "dgvPedidosPendientes";
             this.dgvPedidosPendientes.ReadOnly = true;
             this.dgvPedidosPendientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvPedidosPendientes.Size = new System.Drawing.Size(809, 291);
+            this.dgvPedidosPendientes.Size = new System.Drawing.Size(809, 279);
             this.dgvPedidosPendientes.TabIndex = 0;
             // 
             // groupBox3
@@ -133,12 +135,91 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.groupBox3.Location = new System.Drawing.Point(12, 152);
+            this.groupBox3.Location = new System.Drawing.Point(12, 132);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(867, 333);
             this.groupBox3.TabIndex = 132;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Asignacion De Pedidos";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancelar.Enabled = false;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnCancelar.Location = new System.Drawing.Point(370, 26);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(141, 51);
+            this.btnCancelar.TabIndex = 138;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnVerDetalles
+            // 
+            this.btnVerDetalles.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVerDetalles.Enabled = false;
+            this.btnVerDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerDetalles.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVerDetalles.Location = new System.Drawing.Point(190, 25);
+            this.btnVerDetalles.Name = "btnVerDetalles";
+            this.btnVerDetalles.Size = new System.Drawing.Size(141, 51);
+            this.btnVerDetalles.TabIndex = 137;
+            this.btnVerDetalles.Text = "Ver Detalles";
+            this.btnVerDetalles.UseVisualStyleBackColor = false;
+            // 
+            // btnAsignarPedido
+            // 
+            this.btnAsignarPedido.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAsignarPedido.Enabled = false;
+            this.btnAsignarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarPedido.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAsignarPedido.Location = new System.Drawing.Point(13, 25);
+            this.btnAsignarPedido.Name = "btnAsignarPedido";
+            this.btnAsignarPedido.Size = new System.Drawing.Size(141, 51);
+            this.btnAsignarPedido.TabIndex = 106;
+            this.btnAsignarPedido.Text = "Asignar Pedido";
+            this.btnAsignarPedido.UseVisualStyleBackColor = false;
+            // 
+            // txtLugarEntrega
+            // 
+            this.txtLugarEntrega.Enabled = false;
+            this.txtLugarEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLugarEntrega.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtLugarEntrega.Location = new System.Drawing.Point(141, 230);
+            this.txtLugarEntrega.Name = "txtLugarEntrega";
+            this.txtLugarEntrega.Size = new System.Drawing.Size(333, 22);
+            this.txtLugarEntrega.TabIndex = 136;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label7.Location = new System.Drawing.Point(8, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 15);
+            this.label7.TabIndex = 135;
+            this.label7.Text = "Lugar de Entrega";
+            // 
+            // txtNombreCliente
+            // 
+            this.txtNombreCliente.Enabled = false;
+            this.txtNombreCliente.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtNombreCliente.Location = new System.Drawing.Point(141, 199);
+            this.txtNombreCliente.MaxLength = 50;
+            this.txtNombreCliente.Name = "txtNombreCliente";
+            this.txtNombreCliente.Size = new System.Drawing.Size(278, 21);
+            this.txtNombreCliente.TabIndex = 134;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(4, 199);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(131, 15);
+            this.label3.TabIndex = 133;
+            this.label3.Text = "Nombre del Cliente";
             // 
             // cbbEstado
             // 
@@ -321,6 +402,64 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Operadores";
             // 
+            // btnAgregarNuevo
+            // 
+            this.btnAgregarNuevo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAgregarNuevo.Enabled = false;
+            this.btnAgregarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarNuevo.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnAgregarNuevo.Location = new System.Drawing.Point(432, 131);
+            this.btnAgregarNuevo.Name = "btnAgregarNuevo";
+            this.btnAgregarNuevo.Size = new System.Drawing.Size(99, 49);
+            this.btnAgregarNuevo.TabIndex = 95;
+            this.btnAgregarNuevo.Text = "Agregar Nuevo";
+            this.btnAgregarNuevo.UseVisualStyleBackColor = false;
+            // 
+            // btnVerTodos
+            // 
+            this.btnVerTodos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnVerTodos.Enabled = false;
+            this.btnVerTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerTodos.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnVerTodos.Location = new System.Drawing.Point(432, 61);
+            this.btnVerTodos.Name = "btnVerTodos";
+            this.btnVerTodos.Size = new System.Drawing.Size(99, 49);
+            this.btnVerTodos.TabIndex = 94;
+            this.btnVerTodos.Text = "Ver Totos";
+            this.btnVerTodos.UseVisualStyleBackColor = false;
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtBuscar.Location = new System.Drawing.Point(262, 23);
+            this.txtBuscar.MaxLength = 50;
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(222, 21);
+            this.txtBuscar.TabIndex = 92;
+            // 
+            // cbbBuscarPor
+            // 
+            this.cbbBuscarPor.FormattingEnabled = true;
+            this.cbbBuscarPor.Items.AddRange(new object[] {
+            "Todos",
+            "Nombre",
+            "Codigo"});
+            this.cbbBuscarPor.Location = new System.Drawing.Point(79, 23);
+            this.cbbBuscarPor.Name = "cbbBuscarPor";
+            this.cbbBuscarPor.Size = new System.Drawing.Size(160, 23);
+            this.cbbBuscarPor.TabIndex = 91;
+            this.cbbBuscarPor.Text = "Todos";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label9.Location = new System.Drawing.Point(14, 28);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 15);
+            this.label9.TabIndex = 90;
+            this.label9.Text = "Buscar: ";
+            // 
             // dgvOperadores
             // 
             this.dgvOperadores.AllowUserToAddRows = false;
@@ -400,6 +539,19 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pedidos Asignados";
             // 
+            // btnQuitarDeLista
+            // 
+            this.btnQuitarDeLista.BackColor = System.Drawing.SystemColors.Control;
+            this.btnQuitarDeLista.Enabled = false;
+            this.btnQuitarDeLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnQuitarDeLista.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnQuitarDeLista.Location = new System.Drawing.Point(17, 28);
+            this.btnQuitarDeLista.Name = "btnQuitarDeLista";
+            this.btnQuitarDeLista.Size = new System.Drawing.Size(141, 34);
+            this.btnQuitarDeLista.TabIndex = 95;
+            this.btnQuitarDeLista.Text = "Quitar de Lista";
+            this.btnQuitarDeLista.UseVisualStyleBackColor = false;
+            // 
             // dgvPedidosAsignados
             // 
             this.dgvPedidosAsignados.AllowUserToAddRows = false;
@@ -424,156 +576,6 @@
             this.groupBox6.TabIndex = 136;
             this.groupBox6.TabStop = false;
             // 
-            // txtNombreCliente
-            // 
-            this.txtNombreCliente.Enabled = false;
-            this.txtNombreCliente.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtNombreCliente.Location = new System.Drawing.Point(141, 199);
-            this.txtNombreCliente.MaxLength = 50;
-            this.txtNombreCliente.Name = "txtNombreCliente";
-            this.txtNombreCliente.Size = new System.Drawing.Size(278, 21);
-            this.txtNombreCliente.TabIndex = 134;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(4, 199);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 15);
-            this.label3.TabIndex = 133;
-            this.label3.Text = "Nombre del Cliente";
-            // 
-            // txtLugarEntrega
-            // 
-            this.txtLugarEntrega.Enabled = false;
-            this.txtLugarEntrega.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLugarEntrega.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtLugarEntrega.Location = new System.Drawing.Point(141, 230);
-            this.txtLugarEntrega.Name = "txtLugarEntrega";
-            this.txtLugarEntrega.Size = new System.Drawing.Size(333, 22);
-            this.txtLugarEntrega.TabIndex = 136;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label7.Location = new System.Drawing.Point(8, 233);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 15);
-            this.label7.TabIndex = 135;
-            this.label7.Text = "Lugar de Entrega";
-            // 
-            // cbbBuscarPor
-            // 
-            this.cbbBuscarPor.FormattingEnabled = true;
-            this.cbbBuscarPor.Items.AddRange(new object[] {
-            "Todos",
-            "Nombre",
-            "Codigo"});
-            this.cbbBuscarPor.Location = new System.Drawing.Point(79, 23);
-            this.cbbBuscarPor.Name = "cbbBuscarPor";
-            this.cbbBuscarPor.Size = new System.Drawing.Size(160, 23);
-            this.cbbBuscarPor.TabIndex = 91;
-            this.cbbBuscarPor.Text = "Todos";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label9.Location = new System.Drawing.Point(14, 28);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 15);
-            this.label9.TabIndex = 90;
-            this.label9.Text = "Buscar: ";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtBuscar.Location = new System.Drawing.Point(262, 23);
-            this.txtBuscar.MaxLength = 50;
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(222, 21);
-            this.txtBuscar.TabIndex = 92;
-            // 
-            // btnVerTodos
-            // 
-            this.btnVerTodos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnVerTodos.Enabled = false;
-            this.btnVerTodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerTodos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVerTodos.Location = new System.Drawing.Point(432, 61);
-            this.btnVerTodos.Name = "btnVerTodos";
-            this.btnVerTodos.Size = new System.Drawing.Size(99, 49);
-            this.btnVerTodos.TabIndex = 94;
-            this.btnVerTodos.Text = "Ver Totos";
-            this.btnVerTodos.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregarNuevo
-            // 
-            this.btnAgregarNuevo.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAgregarNuevo.Enabled = false;
-            this.btnAgregarNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarNuevo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAgregarNuevo.Location = new System.Drawing.Point(432, 131);
-            this.btnAgregarNuevo.Name = "btnAgregarNuevo";
-            this.btnAgregarNuevo.Size = new System.Drawing.Size(99, 49);
-            this.btnAgregarNuevo.TabIndex = 95;
-            this.btnAgregarNuevo.Text = "Agregar Nuevo";
-            this.btnAgregarNuevo.UseVisualStyleBackColor = false;
-            // 
-            // btnAsignarPedido
-            // 
-            this.btnAsignarPedido.BackColor = System.Drawing.SystemColors.Control;
-            this.btnAsignarPedido.Enabled = false;
-            this.btnAsignarPedido.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAsignarPedido.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAsignarPedido.Location = new System.Drawing.Point(13, 25);
-            this.btnAsignarPedido.Name = "btnAsignarPedido";
-            this.btnAsignarPedido.Size = new System.Drawing.Size(141, 51);
-            this.btnAsignarPedido.TabIndex = 106;
-            this.btnAsignarPedido.Text = "Asignar Pedido";
-            this.btnAsignarPedido.UseVisualStyleBackColor = false;
-            // 
-            // btnVerDetalles
-            // 
-            this.btnVerDetalles.BackColor = System.Drawing.SystemColors.Control;
-            this.btnVerDetalles.Enabled = false;
-            this.btnVerDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerDetalles.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnVerDetalles.Location = new System.Drawing.Point(190, 25);
-            this.btnVerDetalles.Name = "btnVerDetalles";
-            this.btnVerDetalles.Size = new System.Drawing.Size(141, 51);
-            this.btnVerDetalles.TabIndex = 137;
-            this.btnVerDetalles.Text = "Ver Detalles";
-            this.btnVerDetalles.UseVisualStyleBackColor = false;
-            // 
-            // btnQuitarDeLista
-            // 
-            this.btnQuitarDeLista.BackColor = System.Drawing.SystemColors.Control;
-            this.btnQuitarDeLista.Enabled = false;
-            this.btnQuitarDeLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnQuitarDeLista.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnQuitarDeLista.Location = new System.Drawing.Point(17, 28);
-            this.btnQuitarDeLista.Name = "btnQuitarDeLista";
-            this.btnQuitarDeLista.Size = new System.Drawing.Size(141, 34);
-            this.btnQuitarDeLista.TabIndex = 95;
-            this.btnQuitarDeLista.Text = "Quitar de Lista";
-            this.btnQuitarDeLista.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCancelar.Enabled = false;
-            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnCancelar.Location = new System.Drawing.Point(370, 26);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(141, 51);
-            this.btnCancelar.TabIndex = 138;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.SystemColors.Control;
@@ -585,6 +587,18 @@
             this.btnNuevo.TabIndex = 139;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.UseVisualStyleBackColor = false;
+            // 
+            // btnRefrescarLista
+            // 
+            this.btnRefrescarLista.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRefrescarLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescarLista.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefrescarLista.Location = new System.Drawing.Point(9, 28);
+            this.btnRefrescarLista.Name = "btnRefrescarLista";
+            this.btnRefrescarLista.Size = new System.Drawing.Size(141, 33);
+            this.btnRefrescarLista.TabIndex = 136;
+            this.btnRefrescarLista.Text = "Refrescar Lista";
+            this.btnRefrescarLista.UseVisualStyleBackColor = false;
             // 
             // frmAsignarPedidos
             // 
@@ -662,5 +676,6 @@
         private System.Windows.Forms.Button btnQuitarDeLista;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnRefrescarLista;
     }
 }
