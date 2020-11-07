@@ -39,7 +39,6 @@
             this.cONSULTASToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSPENDIENTESToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSASIGNADOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pEDIDOSSOLICITADOSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cREARPEDIDOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pEDIDOSPENDIENTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,8 +125,7 @@
             // 
             this.cONSULTASToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pEDIDOSPENDIENTESToolStripMenuItem1,
-            this.pEDIDOSASIGNADOSToolStripMenuItem,
-            this.pEDIDOSSOLICITADOSToolStripMenuItem1});
+            this.pEDIDOSASIGNADOSToolStripMenuItem});
             this.cONSULTASToolStripMenuItem.Name = "cONSULTASToolStripMenuItem";
             this.cONSULTASToolStripMenuItem.Size = new System.Drawing.Size(125, 29);
             this.cONSULTASToolStripMenuItem.Text = "CONSULTAS";
@@ -135,20 +133,15 @@
             // pEDIDOSPENDIENTESToolStripMenuItem1
             // 
             this.pEDIDOSPENDIENTESToolStripMenuItem1.Name = "pEDIDOSPENDIENTESToolStripMenuItem1";
-            this.pEDIDOSPENDIENTESToolStripMenuItem1.Size = new System.Drawing.Size(278, 30);
-            this.pEDIDOSPENDIENTESToolStripMenuItem1.Text = "PEDIDOS PENDIENTES";
+            this.pEDIDOSPENDIENTESToolStripMenuItem1.Size = new System.Drawing.Size(267, 30);
+            this.pEDIDOSPENDIENTESToolStripMenuItem1.Text = "CONSULTAR PEDIDOS";
+            this.pEDIDOSPENDIENTESToolStripMenuItem1.Click += new System.EventHandler(this.pEDIDOSPENDIENTESToolStripMenuItem1_Click);
             // 
             // pEDIDOSASIGNADOSToolStripMenuItem
             // 
             this.pEDIDOSASIGNADOSToolStripMenuItem.Name = "pEDIDOSASIGNADOSToolStripMenuItem";
-            this.pEDIDOSASIGNADOSToolStripMenuItem.Size = new System.Drawing.Size(278, 30);
-            this.pEDIDOSASIGNADOSToolStripMenuItem.Text = "PEDIDOS ASIGNADOS";
-            // 
-            // pEDIDOSSOLICITADOSToolStripMenuItem1
-            // 
-            this.pEDIDOSSOLICITADOSToolStripMenuItem1.Name = "pEDIDOSSOLICITADOSToolStripMenuItem1";
-            this.pEDIDOSSOLICITADOSToolStripMenuItem1.Size = new System.Drawing.Size(282, 30);
-            this.pEDIDOSSOLICITADOSToolStripMenuItem1.Text = "PEDIDOS ENTREGADOS";
+            this.pEDIDOSASIGNADOSToolStripMenuItem.Size = new System.Drawing.Size(267, 30);
+            this.pEDIDOSASIGNADOSToolStripMenuItem.Text = "CONSULTAR VENTAS";
             // 
             // pEDIDOSToolStripMenuItem
             // 
@@ -255,7 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem pEDIDOSPENDIENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pEDIDOSASIGNADOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pEDIDOSPENDIENTESToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem pEDIDOSSOLICITADOSToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARPRODUCTOSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARCLENTESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rEGISTRARPROVEEDORESToolStripMenuItem;

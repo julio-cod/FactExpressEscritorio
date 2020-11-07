@@ -16,6 +16,7 @@ namespace FactExpressDesktop.Presentacion
     {
         DataUsuario dUsuario = new DataUsuario();
         int codigo;
+        string nombUsuarioActual = "";
         public frmUsuarios()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace FactExpressDesktop.Presentacion
         private void frmUsuarios_Load(object sender, EventArgs e)
         {
             cargarUsuariosAll();
+
         }
         public void cargarUsuariosAll()
         {
@@ -87,6 +89,7 @@ namespace FactExpressDesktop.Presentacion
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
             btbcancelar.Enabled = false;
+            nombUsuarioActual = "";
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -165,7 +168,7 @@ namespace FactExpressDesktop.Presentacion
 
                 };
 
-                if (dUsuario.ValidarNombreExiste(usuarioModel.Usuario) == false)
+                if (txtusuario.Text == nombUsuarioActual)
                 {
                     if (dUsuario.EditarUsuario(usuarioModel) == true)
                     {
@@ -179,18 +182,46 @@ namespace FactExpressDesktop.Presentacion
                         btnEditar.Enabled = false;
                         btnEliminar.Enabled = false;
                         btbcancelar.Enabled = false;
-
+                        nombUsuarioActual = "";
 
                     }
                     else
                     {
-                        MessageBox.Show("Error al guardar datos");
+                        MessageBox.Show("Error al editar datos");
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("Erro! - El nombre de usuario ya existe");
+                    if (dUsuario.ValidarNombreExiste(usuarioModel.Usuario) == false)
+                    {
+                        if (dUsuario.EditarUsuario(usuarioModel) == true)
+                        {
+                            cargarUsuariosAll();
+
+                            limpiar();
+
+                            desabilitar_textbox();
+                            btnGuardar.Visible = false;
+                            btnnuevo.Visible = true;
+                            btnEditar.Enabled = false;
+                            btnEliminar.Enabled = false;
+                            btbcancelar.Enabled = false;
+                            nombUsuarioActual = "";
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al editar datos");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erro! - El nombre de usuario ya existe");
+                    }
                 }
+
+                
 
                     
 
@@ -207,6 +238,8 @@ namespace FactExpressDesktop.Presentacion
                 txtclave.Text = dgvUsuario.Rows[e.RowIndex].Cells[2].Value.ToString();
                 cbbTipo.Text = dgvUsuario.Rows[e.RowIndex].Cells[3].Value.ToString();
                 cbbEstado.Text = dgvUsuario.Rows[e.RowIndex].Cells[4].Value.ToString();
+
+                nombUsuarioActual = txtusuario.Text;
 
                 habilitar_textbox();
                 btnGuardar.Visible = false;
@@ -242,6 +275,7 @@ namespace FactExpressDesktop.Presentacion
                     btnEditar.Enabled = false;
                     btnEliminar.Enabled = false;
                     btbcancelar.Enabled = false;
+                    nombUsuarioActual = "";
 
                 }
 

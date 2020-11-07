@@ -192,7 +192,7 @@ namespace FactExpressDesktop.Presentacion
                 sector = dgvClienttes.CurrentRow.Cells[5].Value.ToString();
                 provincia = dgvClienttes.CurrentRow.Cells[6].Value.ToString();
 
-                lugarEntrega = direccion +" "+"Sector: " + sector +" "+"Provincia: "+ provincia;
+                lugarEntrega = direccion +", "+"Sector " + sector +", "+"Provincia: "+ provincia;
 
                 pasadoCliente(codigoCliente, nombreCliente, lugarEntrega);
                 

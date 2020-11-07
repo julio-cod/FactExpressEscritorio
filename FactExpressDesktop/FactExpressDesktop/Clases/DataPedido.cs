@@ -213,10 +213,10 @@ namespace FactExpressDesktop.Clases
             conectar.conn.Close();
         }
 
-        public void listarPedidosAsignadosPrueba(DataGridView data)
+        public void listarPedidosEntregados(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,codPedido,codUsuarioEnttrega,nombreUsuario,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario from PedidosAsignados where estado = 'Asignado'", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema from Pedidos where estado = 'Entregado'", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -225,22 +225,127 @@ namespace FactExpressDesktop.Clases
             data.DataSource = dt;
             data.Columns[0].Width = 70;
             data.Columns[1].Width = 70;
-            data.Columns[2].Width = 70;
+            data.Columns[2].Width = 120;
             data.Columns[3].Width = 90;
-            data.Columns[4].Width = 70;
+            data.Columns[4].Width = 90;
             data.Columns[5].Width = 150;
             data.Columns[6].Width = 100;
             data.Columns[7].Width = 100;
-            data.Columns[8].Width = 150;
-            data.Columns[9].Width = 100;
-            data.Columns[10].Width = 100;
-            data.Columns[11].Width = 100;
-            data.Columns[12].Width = 150;
+            data.Columns[8].Width = 100;
+            data.Columns[9].Width = 150;
+            data.Columns[10].Width = 70;
 
 
             conectar.conn.Close();
         }
 
+        public void listarPedidosPendientesParaAsignar(DataGridView data)
+        {
+            conectar.conn.Open();
+            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario from Pedidos where estado = 'Pendiente'", conectar.conn);
+            comando.Connection = conectar.conn;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            data.DataSource = dt;
+            data.Columns[0].Width = 70;
+            data.Columns[1].Width = 70;
+            data.Columns[2].Width = 120;
+            data.Columns[3].Width = 90;
+            data.Columns[4].Width = 150;
+            data.Columns[5].Width = 100;
+            data.Columns[6].Width = 100;
+            data.Columns[7].Width = 100;
+            data.Columns[8].Width = 150;
+
+
+            conectar.conn.Close();
+        }
+
+        public string BuscarTotalGanancia(int codigo)
+        {
+            SqlCommand cmd = null;
+            bool prueba;
+            string totalGanancia = "";
+
+            cmd = new SqlCommand("Select totalGanancia from Pedidos where codigo= @codigo", conectar.conn);
+
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+
+            conectar.abrir();
+            //int resultado = cmd.ExecuteNonQuery();
+            //cmd = null;
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            //conectar.cerrar();
+            if (reader.HasRows)
+            {
+                prueba = true;
+                try
+                {
+                    //RECUPERAR EL COSTO AUTOGENERADO
+
+                    if (reader.Read())
+                    {
+                        totalGanancia = reader[0].ToString();
+                    }
+
+                }
+                catch (Exception e)
+                {
+                    //objVenta.Estado = 1;
+
+                }
+                finally
+                {
+                    cmd = null;
+                    conectar.cerrar();
+                }
+
+            }
+            else
+            {
+                prueba = false;
+            }
+
+            return totalGanancia;
+
+
+        }
+
+        public bool EditarEstadoPedido(PedidoModel pedidoModel)
+        {
+            SqlCommand cmd = null;
+            bool prueba;
+
+            cmd = new SqlCommand("update Pedidos set estado=@estado" +
+                                   " where codigo= @codigo", conectar.conn);
+
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("@codigo", pedidoModel.Codigo));
+            cmd.Parameters.Add(new SqlParameter("@estado", pedidoModel.Estado));
+
+            conectar.abrir();
+            int resultado = cmd.ExecuteNonQuery();
+            cmd = null;
+            conectar.cerrar();
+            if (resultado > 0)
+            {
+                prueba = true;
+            }
+            else
+            {
+                prueba = false;
+            }
+
+            return prueba;
+
+        }
 
     }
 }

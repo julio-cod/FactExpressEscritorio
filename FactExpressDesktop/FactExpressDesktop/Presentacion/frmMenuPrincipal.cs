@@ -87,5 +87,11 @@ namespace FactExpressDesktop.Presentacion
             frmAsignarPedidos fa = new frmAsignarPedidos();
             fa.Show();
         }
+
+        private void pEDIDOSPENDIENTESToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmConsultaPedidos fcp = new frmConsultaPedidos();
+            fcp.Show();
+        }
     }
 }

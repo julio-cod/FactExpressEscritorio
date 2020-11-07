@@ -234,8 +234,9 @@ namespace FactExpressDesktop.Presentacion
                 inhabilitarTextboxProductos();
                 btnQuitarItem.Enabled = true;
                 btnCancelarSeleccion.Enabled = true;
+                txtCantidad.Enabled = true;
+                txtDescuento.Enabled = true;
 
-            
             }
             catch (Exception)
             {
@@ -296,6 +297,7 @@ namespace FactExpressDesktop.Presentacion
             txtPrecio.Text = pPrecio;
             txtDescuento.Text = "0.00";
             vGanancia = 0;
+            txtCantidad.Text = "1";
 
             //pasar datos a las variables para el calculo
             stock = int.Parse(pStock);

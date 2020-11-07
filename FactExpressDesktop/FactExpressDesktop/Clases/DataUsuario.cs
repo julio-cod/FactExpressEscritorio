@@ -264,7 +264,24 @@ namespace FactExpressDesktop.Clases
 
         }
 
+        public void listarUsuariosParaAsignar(DataGridView data)
+        {
+            conectar.conn.Open();
+            SqlCommand comando = new SqlCommand("Select codigo,usuario,tipo,estado from Usuarios where estado = 'Activo'", conectar.conn);
+            comando.Connection = conectar.conn;
+            comando.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(comando);
+            da.Fill(dt);
+            data.DataSource = dt;
+            data.Columns[0].Width = 80;
+            data.Columns[1].Width = 120;
+            data.Columns[2].Width = 100;
+            data.Columns[3].Width = 120;
 
+
+            conectar.conn.Close();
+        }
 
     }
 }
