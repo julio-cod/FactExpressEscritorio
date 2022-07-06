@@ -213,5 +213,10 @@ namespace FactExpressDesktop.Presentacion
             frmClientes fc = new frmClientes();
             fc.ShowDialog();
         }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            cargarClientesAll();
+        }
     }
 }

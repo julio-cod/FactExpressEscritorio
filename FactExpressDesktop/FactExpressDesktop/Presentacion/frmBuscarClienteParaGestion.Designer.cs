@@ -36,6 +36,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.dgvClienttes = new System.Windows.Forms.DataGridView();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienttes)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +53,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRefrescar);
             this.groupBox1.Controls.Add(this.btnBuscarFormClientes);
             this.groupBox1.Controls.Add(this.cbbBuscarPor);
             this.groupBox1.Controls.Add(this.label5);
@@ -70,10 +72,9 @@
             // btnBuscarFormClientes
             // 
             this.btnBuscarFormClientes.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFormClientes.Enabled = false;
             this.btnBuscarFormClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFormClientes.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBuscarFormClientes.Location = new System.Drawing.Point(777, 27);
+            this.btnBuscarFormClientes.Location = new System.Drawing.Point(883, 29);
             this.btnBuscarFormClientes.Name = "btnBuscarFormClientes";
             this.btnBuscarFormClientes.Size = new System.Drawing.Size(161, 30);
             this.btnBuscarFormClientes.TabIndex = 28;
@@ -142,6 +143,19 @@
             this.dgvClienttes.TabIndex = 0;
             this.dgvClienttes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienttes_CellDoubleClick);
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefrescar.Location = new System.Drawing.Point(761, 29);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(99, 30);
+            this.btnRefrescar.TabIndex = 31;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // frmBuscarClienteParaGestion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +184,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.DataGridView dgvClienttes;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

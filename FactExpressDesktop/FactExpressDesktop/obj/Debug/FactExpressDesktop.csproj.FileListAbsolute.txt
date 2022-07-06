@@ -24,3 +24,29 @@ C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactEx
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarProductoParaGestion.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarClienteParaGestion.resources
 C:\Desarrollo de Aplicaciones\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaPedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\bin\Debug\FactExpressDesktop.exe.config
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\bin\Debug\FactExpressDesktop.exe
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\bin\Debug\FactExpressDesktop.pdb
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.csprojAssemblyReference.cache
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmAsignarPedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarClienteParaGestion.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmBuscarProductoParaGestion.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmCategorias.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmClientes.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaClienteDesdePedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaPedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmConsultaProductoDesdePedido.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmEmpresa.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmGestionarPedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmMenuPrincipal.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmPedidos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmProductos.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmProveedores.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmProvincias.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmSectores.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Presentacion.frmUsuarios.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.Properties.Resources.resources
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.csproj.GenerateResource.cache
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.csproj.CoreCompileInputs.cache
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.exe
+C:\Proyecto FactExpress\FactExpress Escritorio\FactExpressDesktop\FactExpressDesktop\obj\Debug\FactExpressDesktop.pdb

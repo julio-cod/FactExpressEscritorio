@@ -54,9 +54,10 @@
             this.txtCodigoCliente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtCreadoPor = new System.Windows.Forms.TextBox();
             this.cbbEstado = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.txtCreadoPor = new System.Windows.Forms.TextBox();
+            this.txtCodCreadoPor = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.dtpFechaOrden = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
@@ -393,9 +394,10 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.txtCreadoPor);
             this.groupBox3.Controls.Add(this.cbbEstado);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.txtCreadoPor);
+            this.groupBox3.Controls.Add(this.txtCodCreadoPor);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.dtpFechaOrden);
             this.groupBox3.Controls.Add(this.label10);
@@ -423,6 +425,15 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Del Pedido";
             // 
+            // txtCreadoPor
+            // 
+            this.txtCreadoPor.Enabled = false;
+            this.txtCreadoPor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCreadoPor.Location = new System.Drawing.Point(1037, 21);
+            this.txtCreadoPor.Name = "txtCreadoPor";
+            this.txtCreadoPor.Size = new System.Drawing.Size(133, 21);
+            this.txtCreadoPor.TabIndex = 133;
+            // 
             // cbbEstado
             // 
             this.cbbEstado.Enabled = false;
@@ -442,14 +453,14 @@
             this.label17.TabIndex = 131;
             this.label17.Text = "Estado:";
             // 
-            // txtCreadoPor
+            // txtCodCreadoPor
             // 
-            this.txtCreadoPor.Enabled = false;
-            this.txtCreadoPor.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.txtCreadoPor.Location = new System.Drawing.Point(952, 22);
-            this.txtCreadoPor.Name = "txtCreadoPor";
-            this.txtCreadoPor.Size = new System.Drawing.Size(209, 21);
-            this.txtCreadoPor.TabIndex = 130;
+            this.txtCodCreadoPor.Enabled = false;
+            this.txtCodCreadoPor.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.txtCodCreadoPor.Location = new System.Drawing.Point(952, 22);
+            this.txtCodCreadoPor.Name = "txtCodCreadoPor";
+            this.txtCodCreadoPor.Size = new System.Drawing.Size(60, 21);
+            this.txtCodCreadoPor.TabIndex = 130;
             // 
             // label15
             // 
@@ -678,13 +689,14 @@
             // 
             // cbbBuscarPedidos
             // 
+            this.cbbBuscarPedidos.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbbBuscarPedidos.FormattingEnabled = true;
             this.cbbBuscarPedidos.Items.AddRange(new object[] {
             "Pendientes",
             "Asignados"});
             this.cbbBuscarPedidos.Location = new System.Drawing.Point(139, 35);
             this.cbbBuscarPedidos.Name = "cbbBuscarPedidos";
-            this.cbbBuscarPedidos.Size = new System.Drawing.Size(184, 23);
+            this.cbbBuscarPedidos.Size = new System.Drawing.Size(135, 26);
             this.cbbBuscarPedidos.TabIndex = 134;
             this.cbbBuscarPedidos.Text = "Pendientes";
             this.cbbBuscarPedidos.SelectedIndexChanged += new System.EventHandler(this.cbbBuscarPedidos_SelectedIndexChanged);
@@ -787,7 +799,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpFechaOrden;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtCreadoPor;
+        private System.Windows.Forms.TextBox txtCodCreadoPor;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbbEstado;
         private System.Windows.Forms.Label label17;
@@ -796,5 +808,6 @@
         private System.Windows.Forms.ComboBox cbbBuscarPedidos;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnRefrescarLista;
+        private System.Windows.Forms.TextBox txtCreadoPor;
     }
 }

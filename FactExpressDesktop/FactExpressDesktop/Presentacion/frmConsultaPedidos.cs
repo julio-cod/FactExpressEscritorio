@@ -14,7 +14,6 @@ namespace FactExpressDesktop.Presentacion
     public partial class frmConsultaPedidos : Form
     {
         DataPedido dPedido = new DataPedido();
-        DataPedidoAsignado dPedidoAsignado = new DataPedidoAsignado();
         DataDetallePedido dDetallePedido = new DataDetallePedido();
         int codPedido;
         public frmConsultaPedidos()
@@ -38,7 +37,7 @@ namespace FactExpressDesktop.Presentacion
             }
             else if (cbbBuscarPedidos.Text == "Asignados")
             {
-                dPedidoAsignado.listarPedidosAsignados(dgvPedidos);
+                dPedido.listarPedidosAsignados(dgvPedidos);
             }
             else if (cbbBuscarPedidos.Text == "Entregados")
             {

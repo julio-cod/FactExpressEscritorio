@@ -14,6 +14,9 @@ namespace FactExpressDesktop.Presentacion
 {
     public partial class frmPedidos : Form
     {
+        public static int CodUsuarioDelSistemaGlobal = 1;
+        public static string nombreUsuarioDelSistemaGlobal = "julio";
+
         DataPedido dPedido = new DataPedido();
         DataDetallePedido dDetallePedido = new DataDetallePedido();
         DataProducto dProducto = new DataProducto();
@@ -273,7 +276,8 @@ namespace FactExpressDesktop.Presentacion
 
             PedidoModel pedidoModel = new PedidoModel
             {
-                CodUsuarioDelSistema = 1,
+                CodUsuarioDelSistema = CodUsuarioDelSistemaGlobal,
+                NombreUsuarioDelSistema = nombreUsuarioDelSistemaGlobal,
                 CodigoCliente = int.Parse(txtCodigoCliente.Text),
                 NombreCliente = txtNombreCliente.Text,
                 LugarEntrega = txtLugarEntrega.Text,
@@ -283,7 +287,9 @@ namespace FactExpressDesktop.Presentacion
                 Total = decimal.Parse(txtTotal.Text),
                 TotalGanancia = totalGanancia,
                 Estado = estado,
-                Comentario = txtComentario.Text
+                Comentario = txtComentario.Text,
+                CodUsuarioEntrega = 0,
+                NombreUsuarioEntrega = "Ninguno"
 
             };
 

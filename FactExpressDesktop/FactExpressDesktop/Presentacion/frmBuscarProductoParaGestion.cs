@@ -180,5 +180,10 @@ namespace FactExpressDesktop.Presentacion
 
             }
         }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            cargarProductosAll();
+        }
     }
 }

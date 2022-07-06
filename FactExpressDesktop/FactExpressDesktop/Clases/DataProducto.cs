@@ -70,11 +70,11 @@ namespace FactExpressDesktop.Clases
             bool prueba;
 
             cmd = new SqlCommand("update Productos set descripcion=@descripcion,categoria=@categoria,stock=@stock,costo=@costo,precio=@precio" +
-                                   " where codigo= @codigo", conectar.conn);
+                                   " where codigoProducto= @codigoProducto", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", productoModel.Codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoProducto", productoModel.Codigo));
             cmd.Parameters.Add(new SqlParameter("@descripcion", productoModel.Descripcion));
             cmd.Parameters.Add(new SqlParameter("@categoria", productoModel.Categoria));
             cmd.Parameters.Add(new SqlParameter("@stock", productoModel.Stock));
@@ -100,15 +100,15 @@ namespace FactExpressDesktop.Clases
 
         }
 
-        public bool EliminarProducto(int codigo)
+        public bool EliminarProducto(int codigoProducto)
         {
             SqlCommand cmd = null;
             bool prueba;
 
-            cmd = new SqlCommand("delete from Productos where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("delete from Productos where codigoProducto= @codigoProducto", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoProducto", codigoProducto));
 
             conectar.abrir();
             int resultado = cmd.ExecuteNonQuery();
@@ -166,7 +166,7 @@ namespace FactExpressDesktop.Clases
             try
             {
                 conectar.conn.Open();
-                SqlCommand comando = new SqlCommand("Select * from Productos where codigo = '" + buscar + "'", conectar.conn);
+                SqlCommand comando = new SqlCommand("Select * from Productos where codigoProducto = '" + buscar + "'", conectar.conn);
                 comando.Connection = conectar.conn;
                 comando.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -209,7 +209,7 @@ namespace FactExpressDesktop.Clases
         public void listarProductosParaPedidos(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoProducto,descripcion,categoria,stock,precio from Productos", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -229,7 +229,7 @@ namespace FactExpressDesktop.Clases
         public void BuscarProductoPorDescripcionParaPedidos(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where descripcion like ('%" + buscar + "%')", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoProducto,descripcion,categoria,stock,precio from Productos where descripcion like ('%" + buscar + "%')", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -244,7 +244,7 @@ namespace FactExpressDesktop.Clases
             try
             {
                 conectar.conn.Open();
-                SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where codigo = '" + buscar + "'", conectar.conn);
+                SqlCommand comando = new SqlCommand("Select codigoProducto,descripcion,categoria,stock,precio from Productos where codigoProducto = '" + buscar + "'", conectar.conn);
                 comando.Connection = conectar.conn;
                 comando.ExecuteNonQuery();
                 DataTable dt = new DataTable();
@@ -264,7 +264,7 @@ namespace FactExpressDesktop.Clases
         public void BuscarProductoPorCategoriaParaPedidos(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,descripcion,categoria,stock,precio from Productos where categoria like ('%" + buscar + "%')", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoProducto,descripcion,categoria,stock,precio from Productos where categoria like ('%" + buscar + "%')", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -274,17 +274,17 @@ namespace FactExpressDesktop.Clases
             conectar.conn.Close();
         }
 
-        public string BuscarCostoProducto(int codigo)
+        public string BuscarCostoProducto(int codigoProducto)
         {
             SqlCommand cmd = null;
             bool prueba;
             string bCosto = "";
 
-            cmd = new SqlCommand("Select costo from Productos where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("Select costo from Productos where codigoProducto= @codigoProducto", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoProducto", codigoProducto));
 
             conectar.abrir();
             //int resultado = cmd.ExecuteNonQuery();
@@ -328,17 +328,17 @@ namespace FactExpressDesktop.Clases
 
         }
 
-        public string BuscarStockProducto(int codigo)
+        public string BuscarStockProducto(int codigoProducto)
         {
             SqlCommand cmd = null;
             bool prueba;
             string bStock = "";
 
-            cmd = new SqlCommand("Select stock from Productos where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("Select stock from Productos where codigoProducto= @codigoProducto", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoProducto", codigoProducto));
 
             conectar.abrir();
             //int resultado = cmd.ExecuteNonQuery();

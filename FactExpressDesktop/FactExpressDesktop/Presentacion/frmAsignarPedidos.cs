@@ -14,7 +14,7 @@ namespace FactExpressDesktop.Presentacion
 {
     public partial class frmAsignarPedidos : Form
     {
-        DataPedidoAsignado dPedidoAsignado = new DataPedidoAsignado();
+        //DataPedidoAsignado dPedidoAsignado = new DataPedidoAsignado();
         DataUsuario dUsuario = new DataUsuario();
         DataPedido dPedido = new DataPedido();
 
@@ -52,8 +52,8 @@ namespace FactExpressDesktop.Presentacion
         {
             if (txtCodigoOperador.Text != "")
             {
-                dPedidoAsignado.CodUsuario = txtCodigoOperador.Text;
-                dPedidoAsignado.BuscarPedidosAsignadosUsuario(dgvPedidosAsignados);
+                dPedido.CodUsuario = txtCodigoOperador.Text;
+                dPedido.BuscarPedidosAsignadosUsuario(dgvPedidosAsignados);
             }
 
         }
@@ -102,8 +102,6 @@ namespace FactExpressDesktop.Presentacion
                 txtNombreOperador.Text = dgvOperadores.Rows[e.RowIndex].Cells[1].Value.ToString();
 
                 cargarPedidosAsignados();
-
-
                 btnCancelar.Enabled = true;
 
             }
@@ -188,26 +186,18 @@ namespace FactExpressDesktop.Presentacion
             estado = "Asignado";
             BuscarGananciaTotalPedido();
 
-            PedidoAsignadoModel pedidoAsignadoModel = new PedidoAsignadoModel
+            PedidoModel PedidoModel = new PedidoModel
             {
-                CodPedido = int.Parse(txtCodigoPedido.Text),
-                CodUsuarioEnttrega = int.Parse(txtCodigoOperador.Text),
-                NombreUsuario = txtNombreOperador.Text,
-                CodigoCliente = codCliente,
-                NombreCliente = txtNombreCliente.Text,
-                LugarEntrega = txtLugarEntrega.Text,
-                FechaEntrega = Convert.ToDateTime(dtpFechaEntrega.Text),
-                TotalDescuentos = decimal.Parse(txtTotalDescuento.Text),
-                Total = decimal.Parse(txtTotal.Text),
-                TotalGanancia = totalGanancia,
+                CodigoPedido = int.Parse(txtCodigoPedido.Text),
                 Estado = estado,
-                Comentario = txtComentario.Text
+                CodUsuarioEntrega = int.Parse(txtCodigoOperador.Text),
+                NombreUsuarioEntrega = txtNombreOperador.Text
 
             };
 
-            if (dPedidoAsignado.AsignarPedido(pedidoAsignadoModel) == true)
+            if (dPedido.AsignarPedido(PedidoModel) == true)
             {
-                EditarEstadoPedido();
+                //EditarEstadoPedido();
                 cargarPedidosAsignados();
                 cargarPedidosPendientes();
                 LimpiarPedido();
@@ -224,33 +214,20 @@ namespace FactExpressDesktop.Presentacion
         {
             totalGanancia = Convert.ToDecimal(dPedido.BuscarTotalGanancia(int.Parse(txtCodigoPedido.Text)));
         }
-
-        public void EditarEstadoPedido() 
+        
+        public void EliminarPedidoAsignado() 
         {
             PedidoModel pedidoModel = new PedidoModel
             {
-                Codigo = int.Parse(txtCodigoPedido.Text),
-                Estado = estado
+                CodigoPedido = int.Parse(txtCodigoPedido.Text),
+                Estado = "Pendiente",
+                CodUsuarioEntrega = 0,
+                NombreUsuarioEntrega = "Ninguno"
 
             };
 
-            if (dPedido.EditarEstadoPedido(pedidoModel) == true)
+            if (dPedido.QuitarPedidoAsignado(pedidoModel) == true)
             {
-                
-            }
-            else
-            {
-                MessageBox.Show("Error al actualizar estado del Pedido");
-                
-            }
-        }
-
-        public void EliminarPedidoAsignado()
-        {
-            estado = "Pendiente";
-            if (dPedidoAsignado.EliminarPedidoAsignado(int.Parse(txtCodigoPedido.Text)) == true)
-            {
-                EditarEstadoPedido();
                 cargarPedidosAsignados();
                 cargarPedidosPendientes();
                 LimpiarPedido();
@@ -259,10 +236,12 @@ namespace FactExpressDesktop.Presentacion
             }
             else
             {
-                MessageBox.Show("Error al eliminar pedido de lista de asignados");
+                MessageBox.Show("Error al quitar pedido asignado");
 
             }
         }
+        
+      
 
         private void btnAgregarNuevo_Click(object sender, EventArgs e)
         {
@@ -288,15 +267,15 @@ namespace FactExpressDesktop.Presentacion
             
             try
             {
-                txtCodigoPedido.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[1].Value.ToString();
-                codCliente = (int)dgvPedidosAsignados.Rows[e.RowIndex].Cells[2].Value;
-                txtNombreCliente.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[3].Value.ToString();
-                dtpFechaEntrega.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[4].Value.ToString();
-                txtLugarEntrega.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[5].Value.ToString();
-                txtTotalDescuento.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[6].Value.ToString();
-                txtTotal.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[7].Value.ToString();
-                cbbEstado.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[8].Value.ToString();
-                txtComentario.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[9].Value.ToString();
+                txtCodigoPedido.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[0].Value.ToString();
+                codCliente = (int)dgvPedidosAsignados.Rows[e.RowIndex].Cells[1].Value;
+                txtNombreCliente.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[2].Value.ToString();
+                dtpFechaEntrega.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[3].Value.ToString();
+                txtLugarEntrega.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[4].Value.ToString();
+                txtTotalDescuento.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[5].Value.ToString();
+                txtTotal.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[6].Value.ToString();
+                cbbEstado.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[7].Value.ToString();
+                txtComentario.Text = dgvPedidosAsignados.Rows[e.RowIndex].Cells[8].Value.ToString();
 
                 btnAsignarPedido.Enabled = false;
                 btnVerDetalles.Enabled = false;
@@ -305,7 +284,6 @@ namespace FactExpressDesktop.Presentacion
 
                 subTotal = decimal.Parse(txtTotal.Text) + decimal.Parse(txtTotalDescuento.Text);
                 txtSubTotal.Text = subTotal.ToString();
-
 
             }
             catch (Exception)

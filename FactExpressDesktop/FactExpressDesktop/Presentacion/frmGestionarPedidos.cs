@@ -85,6 +85,7 @@ namespace FactExpressDesktop.Presentacion
         public void LimpiarTextboxAll()
         {
             txtCodigoPedido.Text = "";
+            txtCodCreadoPor.Text = "";
             txtCreadoPor.Text = "";
             cbbEstado.Text = "";
             txtSubTotal.Text = "0.00";
@@ -150,6 +151,7 @@ namespace FactExpressDesktop.Presentacion
 
         private void dgvPedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             try
             {
                 codPedido = (int)dgvPedidos.Rows[e.RowIndex].Cells[0].Value;
@@ -163,7 +165,8 @@ namespace FactExpressDesktop.Presentacion
                 txtTotal.Text = dgvPedidos.Rows[e.RowIndex].Cells[7].Value.ToString();
                 cbbEstado.Text = dgvPedidos.Rows[e.RowIndex].Cells[8].Value.ToString();
                 txtComentario.Text = dgvPedidos.Rows[e.RowIndex].Cells[9].Value.ToString();
-                txtCreadoPor.Text = dgvPedidos.Rows[e.RowIndex].Cells[10].Value.ToString();
+                txtCodCreadoPor.Text = dgvPedidos.Rows[e.RowIndex].Cells[10].Value.ToString();
+                txtCreadoPor.Text = dgvPedidos.Rows[e.RowIndex].Cells[11].Value.ToString();
 
                 habilitarTextboxPedidos();
                 btnGuardarCambios.Enabled = true;
@@ -217,6 +220,7 @@ namespace FactExpressDesktop.Presentacion
 
         private void btnRefrescarLista_Click(object sender, EventArgs e)
         {
+            LimpiarTextboxAll();
             cargarPedidos();
         }
 
@@ -428,8 +432,7 @@ namespace FactExpressDesktop.Presentacion
             
             PedidoModel pedidoModel = new PedidoModel
             {
-                Codigo = int.Parse(txtCodigoPedido.Text),
-                CodUsuarioDelSistema = 1,
+                CodigoPedido = int.Parse(txtCodigoPedido.Text),
                 CodigoCliente = int.Parse(txtCodigoCliente.Text),
                 NombreCliente = txtNombreCliente.Text,
                 LugarEntrega = txtLugarEntrega.Text,

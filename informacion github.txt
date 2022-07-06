@@ -7,4 +7,4 @@ git remote add origin https://github.com/julio-cod/FactExpressEscritorio.git
 git push -u origin master
 
 ir al proyecto
-cd c/'Desarrollo de Aplicaciones'/'Proyecto FactExpress'/'FactExpress Escritorio'
+cd c/'Proyecto FactExpress'/'FactExpress Escritorio'

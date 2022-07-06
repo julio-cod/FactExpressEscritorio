@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRefrescar = new System.Windows.Forms.Button();
             this.btnBuscarFormProductos = new System.Windows.Forms.Button();
             this.cbbBuscarPor = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -42,6 +43,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnRefrescar);
             this.groupBox1.Controls.Add(this.btnBuscarFormProductos);
             this.groupBox1.Controls.Add(this.cbbBuscarPor);
             this.groupBox1.Controls.Add(this.label5);
@@ -57,13 +59,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Listado de Productos";
             // 
+            // btnRefrescar
+            // 
+            this.btnRefrescar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRefrescar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefrescar.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnRefrescar.Location = new System.Drawing.Point(758, 29);
+            this.btnRefrescar.Name = "btnRefrescar";
+            this.btnRefrescar.Size = new System.Drawing.Size(99, 30);
+            this.btnRefrescar.TabIndex = 29;
+            this.btnRefrescar.Text = "Refrescar";
+            this.btnRefrescar.UseVisualStyleBackColor = false;
+            this.btnRefrescar.Click += new System.EventHandler(this.btnRefrescar_Click);
+            // 
             // btnBuscarFormProductos
             // 
             this.btnBuscarFormProductos.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBuscarFormProductos.Enabled = false;
             this.btnBuscarFormProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarFormProductos.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnBuscarFormProductos.Location = new System.Drawing.Point(769, 29);
+            this.btnBuscarFormProductos.Location = new System.Drawing.Point(880, 29);
             this.btnBuscarFormProductos.Name = "btnBuscarFormProductos";
             this.btnBuscarFormProductos.Size = new System.Drawing.Size(161, 30);
             this.btnBuscarFormProductos.TabIndex = 28;
@@ -170,5 +184,6 @@
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscarFormProductos;
+        private System.Windows.Forms.Button btnRefrescar;
     }
 }

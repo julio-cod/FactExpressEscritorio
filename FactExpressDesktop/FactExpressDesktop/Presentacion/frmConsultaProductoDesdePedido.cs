@@ -160,13 +160,14 @@ namespace FactExpressDesktop.Presentacion
         {
             string codigoProducto, descripcion, categoria, precio, stock;
 
+
             try
             {
                 codigoProducto = dgvProductos.CurrentRow.Cells[0].Value.ToString();
                 descripcion = dgvProductos.CurrentRow.Cells[1].Value.ToString();
                 categoria = dgvProductos.CurrentRow.Cells[2].Value.ToString();
                 stock = dgvProductos.CurrentRow.Cells[3].Value.ToString();
-                precio = dgvProductos.CurrentRow.Cells[4].Value.ToString();                
+                precio = dgvProductos.CurrentRow.Cells[4].Value.ToString();
 
                 pasadoProducto(codigoProducto, descripcion, categoria, precio, stock);
 
@@ -179,6 +180,11 @@ namespace FactExpressDesktop.Presentacion
                 //this.Close();
 
             }
+        }
+
+        private void btnRefrescar_Click(object sender, EventArgs e)
+        {
+            dProducto.listarProductosParaPedidos(dgvProductos);
         }
     }
 }

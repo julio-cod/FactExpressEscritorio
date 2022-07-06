@@ -33,7 +33,7 @@ namespace FactExpressDesktop.Clases
             SqlCommand cmd = null;
             bool prueba;
 
-            cmd = new SqlCommand(" insert into DetallePedido(codPedido,codProducto,descripcion,categoria,cantidad,precio,descuento,ganancia,fecha)" +
+            cmd = new SqlCommand("insert into DetallePedido(codPedido,codProducto,descripcion,categoria,cantidad,precio,descuento,ganancia,fecha)" +
                                    " values (@codPedido,@codProducto,@descripcion,@categoria,@cantidad,@precio,@descuento,@ganancia,@fecha)", conectar.conn);
 
             cmd.CommandType = CommandType.Text;

@@ -33,7 +33,7 @@ namespace FactExpressDesktop.Clases
             SqlCommand cmd = null;
             bool prueba;
 
-            cmd = new SqlCommand(" insert into Provincias(nombreProvincia)" +
+            cmd = new SqlCommand("insert into Provincias(nombreProvincia)" +
                                    " values (@nombreProvincia)", conectar.conn);
 
             cmd.CommandType = CommandType.Text;

@@ -52,7 +52,6 @@
     <Compile Include="Clases\DataDetallePedido.cs" />
     <Compile Include="Clases\DataEmpresa.cs" />
     <Compile Include="Clases\DataPedido.cs" />
-    <Compile Include="Clases\DataPedidoAsignado.cs" />
     <Compile Include="Clases\DataProducto.cs" />
     <Compile Include="Clases\DataProveedor.cs" />
     <Compile Include="Clases\DataProvincia.cs" />
@@ -62,7 +61,6 @@
     <Compile Include="Modelos\ClienteModel.cs" />
     <Compile Include="Modelos\DetallePedidoModel.cs" />
     <Compile Include="Modelos\EmpresaModel.cs" />
-    <Compile Include="Modelos\PedidoAsignadoModel.cs" />
     <Compile Include="Modelos\PedidoModel.cs" />
     <Compile Include="Modelos\ProductoModel.cs" />
     <Compile Include="Modelos\ProveedorModel.cs" />

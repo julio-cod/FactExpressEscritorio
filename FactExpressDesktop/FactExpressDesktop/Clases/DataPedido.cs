@@ -22,6 +22,13 @@ namespace FactExpressDesktop.Clases
             set { buscar = value; }
         }
 
+        private string codUsuario;
+        public string CodUsuario
+        {
+            get { return codUsuario; }
+            set { codUsuario = value; }
+        }
+
         public DataPedido()
         {
             conectar = new Conexion();
@@ -34,12 +41,13 @@ namespace FactExpressDesktop.Clases
             //bool prueba;
             string idPedido = "";
 
-            cmd = new SqlCommand(" insert into Pedidos(codUsuarioDelSistema,codigoCliente,nombreCliente,lugarEntrega,fechaOrden,fechaEntrega,totalDescuentos,total,totalGanancia,estado,comentario)" +
-                                   " values (@codUsuarioDelSistema,@codigoCliente,@nombreCliente,@lugarEntrega,@fechaOrden,@fechaEntrega,@totalDescuentos,@total,@totalGanancia,@estado,@comentario) SELECT SCOPE_IDENTITY();", conectar.conn);
+            cmd = new SqlCommand("insert into Pedidos(codUsuarioDelSistema,nombreUsuarioDelSistema,codigoCliente,nombreCliente,lugarEntrega,fechaOrden,fechaEntrega,totalDescuentos,total,totalGanancia,estado,comentario,codUsuarioEntrega,nombreUsuarioEntrega)" +
+                                   " values (@codUsuarioDelSistema,@nombreUsuarioDelSistema,@codigoCliente,@nombreCliente,@lugarEntrega,@fechaOrden,@fechaEntrega,@totalDescuentos,@total,@totalGanancia,@estado,@comentario,@codUsuarioEntrega,@nombreUsuarioEntrega) SELECT SCOPE_IDENTITY();", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
             cmd.Parameters.Add(new SqlParameter("@codUsuarioDelSistema", pedidoModel.CodUsuarioDelSistema));
+            cmd.Parameters.Add(new SqlParameter("@nombreUsuarioDelSistema", pedidoModel.NombreUsuarioDelSistema));
             cmd.Parameters.Add(new SqlParameter("@codigoCliente", pedidoModel.CodigoCliente));
             cmd.Parameters.Add(new SqlParameter("@nombreCliente", pedidoModel.NombreCliente));
             cmd.Parameters.Add(new SqlParameter("@lugarEntrega", pedidoModel.LugarEntrega));
@@ -50,6 +58,8 @@ namespace FactExpressDesktop.Clases
             cmd.Parameters.Add(new SqlParameter("@totalGanancia", pedidoModel.TotalGanancia));
             cmd.Parameters.Add(new SqlParameter("@estado", pedidoModel.Estado));
             cmd.Parameters.Add(new SqlParameter("@comentario", pedidoModel.Comentario));
+            cmd.Parameters.Add(new SqlParameter("@codUsuarioEntrega", pedidoModel.CodUsuarioEntrega));
+            cmd.Parameters.Add(new SqlParameter("@nombreUsuarioEntrega", pedidoModel.NombreUsuarioEntrega));
 
             conectar.abrir();
             //int resultado = cmd.ExecuteNonQuery();
@@ -100,21 +110,18 @@ namespace FactExpressDesktop.Clases
             bool prueba;
 
             cmd = new SqlCommand("update Pedidos set codigoCliente=@codigoCliente,nombreCliente=@nombreCliente,lugarEntrega=@lugarEntrega,fechaEntrega=@fechaEntrega,totalDescuentos=@totalDescuentos,total=@total,comentario=@comentario" +
-                                   " where codigo= @codigo", conectar.conn);
+                                   " where codigoPedido= @codigoPedido", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", pedidoModel.Codigo));
-            //cmd.Parameters.Add(new SqlParameter("@codUsuarioDelSistema", pedidoModel.CodUsuarioDelSistema));
+            cmd.Parameters.Add(new SqlParameter("@codigoPedido", pedidoModel.CodigoPedido));
             cmd.Parameters.Add(new SqlParameter("@codigoCliente", pedidoModel.CodigoCliente));
             cmd.Parameters.Add(new SqlParameter("@nombreCliente", pedidoModel.NombreCliente));
             cmd.Parameters.Add(new SqlParameter("@lugarEntrega", pedidoModel.LugarEntrega));
-            //cmd.Parameters.Add(new SqlParameter("@fechaOrden", pedidoModel.FechaOrden));
             cmd.Parameters.Add(new SqlParameter("@fechaEntrega", pedidoModel.FechaEntrega));
             cmd.Parameters.Add(new SqlParameter("@totalDescuentos", pedidoModel.TotalDescuentos));
             cmd.Parameters.Add(new SqlParameter("@total", pedidoModel.Total));
             cmd.Parameters.Add(new SqlParameter("@totalGanancia", pedidoModel.TotalGanancia));
-            //cmd.Parameters.Add(new SqlParameter("@estado", pedidoModel.Estado));
             cmd.Parameters.Add(new SqlParameter("@comentario", pedidoModel.Comentario));
 
             conectar.abrir();
@@ -139,10 +146,10 @@ namespace FactExpressDesktop.Clases
             SqlCommand cmd = null;
             bool prueba;
 
-            cmd = new SqlCommand("delete from Pedidos where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("delete from Pedidos where codigoPedido= @codigoPedido", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoPedido", codigo));
 
             conectar.abrir();
             int resultado = cmd.ExecuteNonQuery();
@@ -164,7 +171,7 @@ namespace FactExpressDesktop.Clases
         public void listarPedidosPendientes(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema from Pedidos where estado = 'Pendiente'", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoPedido,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema,nombreUsuarioDelSistema from Pedidos where estado = 'Pendiente'", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -181,6 +188,7 @@ namespace FactExpressDesktop.Clases
             data.Columns[7].Width = 100;
             data.Columns[8].Width = 100;
             data.Columns[9].Width = 150;
+            data.Columns[10].Width = 70;
             data.Columns[10].Width = 70;
 
 
@@ -190,7 +198,7 @@ namespace FactExpressDesktop.Clases
         public void listarPedidosAsignados(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema from Pedidos where estado = 'Asignado'", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoPedido,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema,nombreUsuarioDelSistema,codUsuarioEntrega,nombreUsuarioEntrega from Pedidos where estado = 'Asignado'", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -208,7 +216,7 @@ namespace FactExpressDesktop.Clases
             data.Columns[8].Width = 100;
             data.Columns[9].Width = 150;
             data.Columns[10].Width = 70;
-
+            data.Columns[10].Width = 70;
 
             conectar.conn.Close();
         }
@@ -216,7 +224,7 @@ namespace FactExpressDesktop.Clases
         public void listarPedidosEntregados(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema from Pedidos where estado = 'Entregado'", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoPedido,codigoCliente,nombreCliente,fechaOrden,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario,codUsuarioDelSistema,nombreUsuarioDelSistema from Pedidos where estado = 'Entregado'", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -234,7 +242,7 @@ namespace FactExpressDesktop.Clases
             data.Columns[8].Width = 100;
             data.Columns[9].Width = 150;
             data.Columns[10].Width = 70;
-
+            data.Columns[10].Width = 70;
 
             conectar.conn.Close();
         }
@@ -242,7 +250,7 @@ namespace FactExpressDesktop.Clases
         public void listarPedidosPendientesParaAsignar(DataGridView data)
         {
             conectar.conn.Open();
-            SqlCommand comando = new SqlCommand("Select codigo,codigoCliente,nombreCliente,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario from Pedidos where estado = 'Pendiente'", conectar.conn);
+            SqlCommand comando = new SqlCommand("Select codigoPedido,codigoCliente,nombreCliente,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario from Pedidos where estado = 'Pendiente'", conectar.conn);
             comando.Connection = conectar.conn;
             comando.ExecuteNonQuery();
             DataTable dt = new DataTable();
@@ -263,17 +271,17 @@ namespace FactExpressDesktop.Clases
             conectar.conn.Close();
         }
 
-        public string BuscarTotalGanancia(int codigo)
+        public string BuscarTotalGanancia(int codigoPedido)
         {
             SqlCommand cmd = null;
             bool prueba;
             string totalGanancia = "";
 
-            cmd = new SqlCommand("Select totalGanancia from Pedidos where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("Select totalGanancia from Pedidos where codigoPedido= @codigoPedido", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoPedido", codigoPedido));
 
             conectar.abrir();
             //int resultado = cmd.ExecuteNonQuery();
@@ -317,18 +325,20 @@ namespace FactExpressDesktop.Clases
 
         }
 
-        public bool EditarEstadoPedido(PedidoModel pedidoModel)
+        public bool QuitarPedidoAsignado(PedidoModel pedidoModel)
         {
             SqlCommand cmd = null;
             bool prueba;
 
-            cmd = new SqlCommand("update Pedidos set estado=@estado" +
-                                   " where codigo= @codigo", conectar.conn);
+            cmd = new SqlCommand("update Pedidos set estado=@estado, codUsuarioEntrega=@codUsuarioEntrega, nombreUsuarioEntrega=@nombreUsuarioEntrega" +
+                                   " where codigoPedido= @codigoPedido", conectar.conn);
 
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add(new SqlParameter("@codigo", pedidoModel.Codigo));
+            cmd.Parameters.Add(new SqlParameter("@codigoPedido", pedidoModel.CodigoPedido));
             cmd.Parameters.Add(new SqlParameter("@estado", pedidoModel.Estado));
+            cmd.Parameters.Add(new SqlParameter("@codUsuarioEntrega", pedidoModel.CodUsuarioEntrega));
+            cmd.Parameters.Add(new SqlParameter("@nombreUsuarioEntrega", pedidoModel.NombreUsuarioEntrega));
 
             conectar.abrir();
             int resultado = cmd.ExecuteNonQuery();
@@ -346,6 +356,67 @@ namespace FactExpressDesktop.Clases
             return prueba;
 
         }
+
+        public bool AsignarPedido(PedidoModel pedidoModel)
+        {
+            SqlCommand cmd = null;
+            bool prueba;
+
+            cmd = new SqlCommand("update Pedidos set estado=@estado, codUsuarioEntrega=@codUsuarioEntrega, nombreUsuarioEntrega=@nombreUsuarioEntrega" +
+                                   " where codigoPedido= @codigoPedido", conectar.conn);
+
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add(new SqlParameter("@codigoPedido", pedidoModel.CodigoPedido));
+            cmd.Parameters.Add(new SqlParameter("@estado", pedidoModel.Estado));
+            cmd.Parameters.Add(new SqlParameter("@codUsuarioEntrega", pedidoModel.CodUsuarioEntrega));
+            cmd.Parameters.Add(new SqlParameter("@nombreUsuarioEntrega", pedidoModel.NombreUsuarioEntrega));
+
+            conectar.abrir();
+            int resultado = cmd.ExecuteNonQuery();
+            cmd = null;
+            conectar.cerrar();
+            if (resultado > 0)
+            {
+                prueba = true;
+            }
+            else
+            {
+                prueba = false;
+            }
+
+            return prueba;
+
+        }
+
+        
+
+        public void BuscarPedidosAsignadosUsuario(DataGridView data)
+        {
+            
+            try
+            {
+                conectar.conn.Open();
+                SqlCommand comando = new SqlCommand("Select codigoPedido,codigoCliente,nombreCliente,fechaEntrega,lugarEntrega,totalDescuentos,total,estado,comentario from Pedidos where estado = 'Asignado' and codUsuarioEntrega = '" + codUsuario + "'", conectar.conn);
+                comando.Connection = conectar.conn;
+                comando.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(comando);
+                da.Fill(dt);
+                data.DataSource = dt;
+                conectar.conn.Close();
+
+            }
+            catch (Exception)
+            {
+
+                conectar.conn.Close();
+            }
+
+        }
+
+
+        
 
     }
 }
